@@ -17,153 +17,248 @@
 		<meta property="og:type" content="blog" />
 
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			/* Custom styles for better content density */
+			.article-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+				gap: 2rem;
+				margin: 2rem 0;
+			}
+			.article-card {
+				border: 1px solid rgba(255,255,255,0.1);
+				padding: 1.5rem;
+				border-radius: 8px;
+				transition: all 0.3s ease;
+			}
+			.article-card:hover {
+				border-color: rgba(255,255,255,0.3);
+				transform: translateY(-2px);
+			}
+			.article-meta {
+				font-size: 0.85rem;
+				opacity: 0.7;
+				margin: 0.5rem 0;
+			}
+			.tag {
+				display: inline-block;
+				padding: 0.2rem 0.6rem;
+				background: rgba(255,255,255,0.1);
+				border-radius: 4px;
+				font-size: 0.8rem;
+				margin-right: 0.5rem;
+			}
+			.featured-banner {
+				background: linear-gradient(135deg, rgba(138,43,226,0.1) 0%, rgba(75,0,130,0.1) 100%);
+				padding: 2rem;
+				border-radius: 8px;
+				margin-bottom: 2rem;
+			}
+			.compact-section {
+				padding: 2rem 0;
+			}
+			.sidebar-nav {
+				position: sticky;
+				top: 2rem;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
 			<div id="wrapper">
 
-				<!-- Header -->
-					<section class="intro">
-						<header>
-							<h1>Technology Insights</h1>
-							<p>From Lab to Market: Translating Research to Real-World Implementation</p>
-							<ul class="actions">
-								<li><a href="index.html" class="button">Back to Main</a></li>
-								<li><a href="#featured" class="button primary">Latest Articles</a></li>
-							</ul>
-						</header>
-						<div class="content">
-							<span class="image fill" data-position="center"><img src="images/blog-hero.jpg" alt="Technology Blog" /></span>
-						</div>
-					</section>
+				<!-- Compact Header -->
+				<section class="intro" style="min-height: auto; padding: 3rem 0;">
+					<header>
+						<h1>Technology Insights</h1>
+						<p>Practical implementation guides from ฿85.3M of deployed AI systems</p>
+						<ul class="actions">
+							<li><a href="index.html" class="button">Home</a></li>
+							<li><input type="search" placeholder="Search articles..." style="padding: 0.5rem; border-radius: 4px;" /></li>
+						</ul>
+					</header>
+				</section>
 
-				<!-- Featured Article -->
-					<section id="featured">
-						<header>
-							<h2>Featured</h2>
-						</header>
-						<div class="content">
-							<article class="box">
-								<span class="icon solid fa-star major"></span>
-								<h3>How We Generated ฿85.3M Through AI Transformation at SCB 10X</h3>
-								<p class="meta">September 2024 • 12 min read • <span class="tag">AI Implementation</span></p>
-								<p>A deep dive into the 7 AI-powered systems we deployed at a $700M VC fund, automating deal sourcing, screening, and due diligence while saving 2,500+ hours annually.</p>
-								<ul class="actions">
-									<li><a href="articles/ai-transformation-scb10x.html" class="button primary">Read Full Article</a></li>
-								</ul>
-							</article>
-						</div>
-					</section>
+				<!-- Main Content Area -->
+				<section class="compact-section">
+					<div class="content">
+						<div style="display: grid; grid-template-columns: 3fr 1fr; gap: 3rem;">
 
-				<!-- Recent Articles -->
-					<section>
-						<header>
-							<h2>Recent Articles</h2>
-						</header>
-						<div class="content">
-							<div class="gallery">
-								<!-- Article 1 -->
-								<article>
-									<span class="icon solid fa-atom major"></span>
-									<h3>Quantum Computing Meets Enterprise: Key Insights from QTFT Discussion</h3>
-									<p class="meta">September 2024 • 8 min read</p>
-									<p>Lessons from hosting Dr. Jirawat Tangpanitanon on practical quantum applications for business optimization problems.</p>
-									<a href="articles/quantum-enterprise.html" class="button small">Read More</a>
-								</article>
+							<!-- Main Blog Content -->
+							<div>
+								<!-- Featured Article -->
+								<div class="featured-banner">
+									<span class="tag">FEATURED</span>
+									<span class="tag">AI IMPLEMENTATION</span>
+									<h2 style="margin: 1rem 0;">How We Generated ฿85.3M Through AI Transformation at SCB 10X</h2>
+									<p class="article-meta">September 2024 • 12 min read • 1,247 views</p>
+									<p>Deep dive into 7 AI-powered systems deployed at a $700M VC fund, automating deal sourcing, screening, and due diligence while saving 2,500+ hours annually. Real metrics, real implementation, real results.</p>
+									<ul class="actions" style="margin-top: 1rem;">
+										<li><a href="articles/ai-transformation-scb10x.html" class="button primary">Read Full Case Study</a></li>
+										<li><a href="#" class="button small">Download PDF</a></li>
+									</ul>
+								</div>
 
-								<!-- Article 2 -->
-								<article>
-									<span class="icon solid fa-robot major"></span>
-									<h3>The Rise of Agentic AI: Moving Beyond ChatGPT to Autonomous Systems</h3>
-									<p class="meta">August 2024 • 10 min read</p>
-									<p>Why enterprises need to think beyond conversational AI and embrace autonomous agent architectures.</p>
-									<a href="articles/agentic-ai.html" class="button small">Read More</a>
-								</article>
+								<!-- Recent Articles Grid -->
+								<h3>Recent Articles</h3>
+								<div class="article-grid">
+									<!-- Article 1 -->
+									<article class="article-card">
+										<span class="icon solid fa-atom" style="color: #8a2be2;"></span>
+										<span class="tag">QUANTUM</span>
+										<h4>Quantum Computing Meets Enterprise</h4>
+										<p class="article-meta">Sept 2024 • 8 min</p>
+										<p>Key insights from hosting QTFT CEO on practical quantum applications for business optimization.</p>
+										<a href="articles/quantum-enterprise.html" class="button small">Read →</a>
+									</article>
 
-								<!-- Article 3 -->
-								<article>
-									<span class="icon solid fa-coins major"></span>
-									<h3>DeFi Infrastructure at Scale: Lessons from 600M THB Operations</h3>
-									<p class="meta">July 2024 • 15 min read</p>
-									<p>Technical architecture and risk management strategies from building Thailand's largest stake pool.</p>
-									<a href="articles/defi-scale.html" class="button small">Read More</a>
-								</article>
+									<!-- Article 2 -->
+									<article class="article-card">
+										<span class="icon solid fa-robot" style="color: #8a2be2;"></span>
+										<span class="tag">AGENTIC AI</span>
+										<h4>Beyond ChatGPT: Autonomous Systems</h4>
+										<p class="article-meta">Aug 2024 • 10 min</p>
+										<p>Why enterprises need autonomous agent architectures, not just conversational AI.</p>
+										<a href="articles/agentic-ai.html" class="button small">Read →</a>
+									</article>
 
-								<!-- Article 4 -->
-								<article>
-									<span class="icon solid fa-shield-alt major"></span>
-									<h3>AI Risk Management for Financial Institutions: Bank of Thailand Insights</h3>
-									<p class="meta">June 2024 • 7 min read</p>
-									<p>Framework for deploying AI in regulated environments while managing systemic risks.</p>
-									<a href="articles/ai-risk-finance.html" class="button small">Read More</a>
-								</article>
+									<!-- Article 3 -->
+									<article class="article-card">
+										<span class="icon solid fa-coins" style="color: #8a2be2;"></span>
+										<span class="tag">DEFI</span>
+										<h4>DeFi Infrastructure at Scale</h4>
+										<p class="article-meta">July 2024 • 15 min</p>
+										<p>Technical architecture from building Thailand's largest stake pool (600M THB).</p>
+										<a href="articles/defi-scale.html" class="button small">Read →</a>
+									</article>
+
+									<!-- Article 4 -->
+									<article class="article-card">
+										<span class="icon solid fa-shield-alt" style="color: #8a2be2;"></span>
+										<span class="tag">RISK</span>
+										<h4>AI Risk for Financial Institutions</h4>
+										<p class="article-meta">June 2024 • 7 min</p>
+										<p>Framework for deploying AI in regulated environments (Bank of Thailand insights).</p>
+										<a href="articles/ai-risk-finance.html" class="button small">Read →</a>
+									</article>
+
+									<!-- Article 5 -->
+									<article class="article-card">
+										<span class="icon solid fa-chart-line" style="color: #8a2be2;"></span>
+										<span class="tag">METRICS</span>
+										<h4>Measuring AI ROI: Beyond the Hype</h4>
+										<p class="article-meta">May 2024 • 9 min</p>
+										<p>Practical framework for quantifying AI implementation value in enterprises.</p>
+										<a href="#" class="button small">Read →</a>
+									</article>
+
+									<!-- Article 6 -->
+									<article class="article-card">
+										<span class="icon solid fa-code-branch" style="color: #8a2be2;"></span>
+										<span class="tag">WEB3</span>
+										<h4>Cross-Chain Architecture Done Right</h4>
+										<p class="article-meta">April 2024 • 11 min</p>
+										<p>Lessons from implementing production cross-chain protocols for DeFi.</p>
+										<a href="#" class="button small">Read →</a>
+									</article>
+								</div>
+
+								<!-- Load More -->
+								<div style="text-align: center; margin: 2rem 0;">
+									<button class="button">Load More Articles</button>
+								</div>
+							</div>
+
+							<!-- Sidebar -->
+							<div class="sidebar-nav">
+								<!-- Topics -->
+								<div style="margin-bottom: 2rem;">
+									<h4>Topics</h4>
+									<ul class="alt">
+										<li><a href="#">AI Implementation (8)</a></li>
+										<li><a href="#">Web3/Blockchain (6)</a></li>
+										<li><a href="#">Venture Capital (5)</a></li>
+										<li><a href="#">Quantum Computing (3)</a></li>
+										<li><a href="#">Risk Management (4)</a></li>
+									</ul>
+								</div>
+
+								<!-- Popular Posts -->
+								<div style="margin-bottom: 2rem;">
+									<h4>Most Read</h4>
+									<ol style="font-size: 0.9rem;">
+										<li><a href="#">฿85.3M AI Transformation</a></li>
+										<li><a href="#">Why Enterprise AI Fails</a></li>
+										<li><a href="#">DeFi at 600M THB Scale</a></li>
+										<li><a href="#">Agentic AI Architecture</a></li>
+										<li><a href="#">Quantum for Business</a></li>
+									</ol>
+								</div>
+
+								<!-- Newsletter -->
+								<div class="box" style="padding: 1.5rem;">
+									<h4>Weekly Insights</h4>
+									<p style="font-size: 0.9rem;">Get implementation guides delivered to your inbox.</p>
+									<form>
+										<input type="email" placeholder="your@email.com" style="margin-bottom: 1rem;" />
+										<button type="submit" class="button primary small fit">Subscribe</button>
+									</form>
+									<p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.5rem;">1,000+ tech leaders subscribed</p>
+								</div>
+
+								<!-- About -->
+								<div style="margin-top: 2rem;">
+									<h4>About</h4>
+									<p style="font-size: 0.9rem;">
+										<strong>Asst. Prof. Tanwa Arpornthip, Ph.D.</strong><br/>
+										Senior Technical Advisor, SCB 10X<br/>
+										$700M VC • ฿85.3M Value Generated
+									</p>
+									<ul class="actions">
+										<li><a href="index.html#contact" class="button small">Consulting</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
-					</section>
+					</div>
+				</section>
 
-				<!-- Article Categories -->
-					<section>
-						<header>
-							<h2>Browse by Topic</h2>
-						</header>
-						<div class="content">
-							<ul class="feature-icons">
-								<li class="icon solid fa-brain">
-									<h3>AI & Machine Learning</h3>
-									<p>Implementation guides, case studies, and technical architectures</p>
-									<a href="category/ai.html">View 8 articles</a>
-								</li>
-								<li class="icon solid fa-cube">
-									<h3>Web3 & Blockchain</h3>
-									<p>DeFi protocols, smart contracts, and decentralized systems</p>
-									<a href="category/web3.html">View 6 articles</a>
-								</li>
-								<li class="icon solid fa-chart-line">
-									<h3>Venture Capital & Tech Investing</h3>
-									<p>Due diligence frameworks and technology evaluation</p>
-									<a href="category/vc.html">View 5 articles</a>
-								</li>
-								<li class="icon solid fa-university">
-									<h3>Research to Production</h3>
-									<p>Bridging academic research with enterprise deployment</p>
-									<a href="category/research.html">View 4 articles</a>
-								</li>
-							</ul>
+				<!-- Series Section -->
+				<section class="compact-section" style="background: rgba(138,43,226,0.05);">
+					<div class="content">
+						<h3>Article Series</h3>
+						<div class="article-grid">
+							<div class="box">
+								<h4>🚀 From Lab to Market</h4>
+								<p>5-part series on translating research to production</p>
+								<a href="#" class="button small">Start Reading</a>
+							</div>
+							<div class="box">
+								<h4>🤖 Enterprise AI Playbook</h4>
+								<p>7-part implementation guide with real case studies</p>
+								<a href="#" class="button small">Start Reading</a>
+							</div>
+							<div class="box">
+								<h4>🔗 Web3 Architecture</h4>
+								<p>4-part technical deep dive on DeFi infrastructure</p>
+								<a href="#" class="button small">Start Reading</a>
+							</div>
 						</div>
-					</section>
-
-				<!-- Newsletter Signup -->
-					<section>
-						<header>
-							<h2>Stay Updated</h2>
-						</header>
-						<div class="content">
-							<p><strong>Get weekly insights on AI and Web3 implementation delivered to your inbox.</strong></p>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<input type="email" name="email" id="email" placeholder="your@email.com" />
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Subscribe" class="button primary" /></li>
-								</ul>
-							</form>
-							<p class="small">Join 1,000+ technology leaders. No spam, unsubscribe anytime.</p>
-						</div>
-					</section>
+					</div>
+				</section>
 
 				<!-- Footer -->
-					<section>
-						<footer>
-							<ul class="actions">
-								<li><a href="index.html" class="button">Back to Main Site</a></li>
-							</ul>
-							<p>&copy; 2024 Asst. Prof. Tanwa Arpornthip, Ph.D. All rights reserved.<br />
-							Design: <a href="http://html5up.net">HTML5 UP</a></p>
-						</footer>
-					</section>
+				<section>
+					<footer>
+						<ul class="actions">
+							<li><a href="index.html" class="button">Back to Main Site</a></li>
+							<li><a href="#" class="button">RSS Feed</a></li>
+						</ul>
+						<p>&copy; 2024 Asst. Prof. Tanwa Arpornthip, Ph.D. All rights reserved.<br />
+						Design: <a href="http://html5up.net">HTML5 UP</a></p>
+					</footer>
+				</section>
 
 			</div>
 
