@@ -1,368 +1,321 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flamingo 492 | Consulting & Corporate Training</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            /* Flamingo 492 Palette */
-            --bg: #FAF9F7;          /* Porcelain White */
-            --text: #2E2E2E;        /* Graphite Charcoal */
-            --accent: #E6524A;      /* Flamingo Coral */
-            --accent-hover: #F77B72;
-            --secondary: #D7D7CF;   /* Cool Mist */
-            --gold: #E9A74B;        /* Golden Sand */
-            
-            --gutter: 2rem;
-            --transition: cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
+<!DOCTYPE HTML>
+<!--
+	Professional Portfolio - Asst. Prof. Tanwa Arpornthip, Ph.D.
+	Advanced Technology Implementation Expert
+-->
+<html>
+	<head>
+		<title>Asst. Prof. Tanwa Arpornthip, Ph.D. - AI & Web3 Implementation Expert</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Leading AI and Web3 implementation expert. From quantum computing to enterprise AI deployment. Senior Advisor at $700M VC. Transforming frontier technology into business value." />
+		<meta name="keywords" content="AI implementation Thailand, blockchain consultant Southeast Asia, Web3 deployment expert, enterprise AI transformation, DeFi infrastructure, quantum computing applications, Tanwa Arpornthip, SCB 10X advisor" />
 
-        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; /* Custom cursor feel */ }
+		<!-- Favicon and Touch Icons -->
+		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+		<link rel="icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+		<link rel="manifest" href="manifest.json" />
+		<meta name="theme-color" content="#f56a6a" />
 
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Manrope', sans-serif;
-            overflow-x: hidden;
-        }
+		<!-- Open Graph Meta Tags -->
+		<meta property="og:title" content="Asst. Prof. Tanwa Arpornthip, Ph.D. - AI & Web3 Implementation Expert" />
+		<meta property="og:description" content="Translating frontier technology from research papers to production systems. $700M VC advisor, ฿85.3M value generated through AI transformation." />
+		<meta property="og:image" content="https://tanwa.info/images/og-image.jpg" />
+		<meta property="og:url" content="https://tanwa.info" />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Tanwa Arpornthip" />
+		<meta property="og:locale" content="en_US" />
 
-        /* --- CUSTOM CURSOR --- */
-        .cursor-dot,
-        .cursor-outline {
-            position: fixed;
-            top: 0;
-            left: 0;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            z-index: 9999;
-            pointer-events: none;
-        }
-        .cursor-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--text);
-        }
-        .cursor-outline {
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--text);
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
-        }
-        
-        /* Hover state for cursor */
-        body.hovering .cursor-outline {
-            width: 80px;
-            height: 80px;
-            background-color: rgba(230, 82, 74, 0.1);
-            border-color: var(--accent);
-        }
+		<!-- Twitter Card Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Asst. Prof. Tanwa Arpornthip, Ph.D. - AI & Web3 Implementation Expert" />
+		<meta name="twitter:description" content="Translating frontier technology from research papers to production systems. $700M VC advisor, ฿85.3M value generated through AI transformation." />
+		<meta name="twitter:image" content="https://tanwa.info/images/og-image.jpg" />
 
-        /* --- HEADER --- */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            mix-blend-mode: difference; /* Ensures visibility on dark images */
-            color: #fff; /* Inverted by mix-blend-mode */
-        }
-        
-        .logo {
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-            font-size: 1.5rem;
-        }
+		<!-- Schema.org structured data for GEO -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Asst. Prof. Tanwa Arpornthip, Ph.D.",
+			"jobTitle": "Senior Technical Advisor",
+			"worksFor": {
+				"@type": "Organization",
+				"name": "SCB 10X",
+				"description": "$700M Corporate Venture Capital"
+			},
+			"alumniOf": [
+				{
+					"@type": "CollegeOrUniversity",
+					"name": "University of Virginia"
+				},
+				{
+					"@type": "CollegeOrUniversity",
+					"name": "Washington University in St. Louis"
+				}
+			],
+			"knowsAbout": ["Artificial Intelligence", "Blockchain", "Web3", "Quantum Computing", "DeFi", "Machine Learning"],
+			"sameAs": [
+				"https://www.linkedin.com/in/tanwa-arpornthip-37ba04137/",
+				"https://scholar.google.com/citations?user=xtIiVDkAAAAJ"
+			]
+		}
+		</script>
 
-        .menu-btn {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-weight: 700;
-        }
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
 
-        /* --- MARQUEE (SCROLLING TEXT) --- */
-        .marquee-container {
-            position: fixed;
-            bottom: 2rem;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
-            z-index: 50;
-            pointer-events: none;
-        }
-        
-        .marquee-content {
-            display: inline-block;
-            animation: marquee 20s linear infinite;
-        }
-        
-        .marquee-item {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            margin-right: 4rem;
-            color: var(--text);
-            font-weight: 500;
-        }
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
+				<!-- Hero -->
+					<section class="intro">
+						<header>
+							<h1>Asst. Prof. Tanwa Arpornthip, Ph.D.</h1>
+							<p>I translate frontier technology from research papers to production systems.<br />
+							<strong>Where others theorize, I implement.</strong></p>
+							<ul class="actions">
+								<li><a href="#expertise" class="button primary">View Expertise</a></li>
+								<li><a href="blog.html" class="button">Read Blog</a></li>
+								<li><a href="mailto:tanwa@flamingo492.com" class="button">Contact</a></li>
+							</ul>
+						</header>
+						<div class="content">
+							<span class="image fill" data-position="center"><img src="images/hero-tech.jpg" alt="Tanwa Arpornthip" /></span>
+						</div>
+					</section>
 
-        /* --- MAIN CONTENT LAYER --- */
-        .content-layer {
-            position: relative;
-            z-index: 10;
-            padding-top: 15vh;
-            padding-bottom: 20vh;
-        }
+				<!-- Impact Numbers -->
+					<section id="impact">
+						<header>
+							<h2>Proven Impact</h2>
+						</header>
+						<div class="content">
+							<ul class="feature-icons">
+								<li class="icon solid fa-chart-line">
+									<h3>฿85.3M</h3>
+									<p>Value Generated Through AI Transformation</p>
+								</li>
+								<li class="icon solid fa-coins">
+									<h3>$700M</h3>
+									<p>VC Fund Technical Advisor</p>
+								</li>
+								<li class="icon solid fa-users">
+									<h3>5,000+</h3>
+									<p>Global Summit Attendees</p>
+								</li>
+								<li class="icon solid fa-graduation-cap">
+									<h3>500+</h3>
+									<p>Research Citations</p>
+								</li>
+							</ul>
+						</div>
+					</section>
 
-        .hero-statement {
-            padding: 0 var(--gutter);
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            line-height: 1.1;
-            margin-bottom: 10vh;
-            max-width: 90%;
-            font-weight: 800;
-        }
-        .hero-statement span {
-            color: var(--accent);
-        }
+				<!-- Expertise -->
+					<section id="expertise">
+						<header>
+							<h2>Core Expertise</h2>
+						</header>
+						<div class="content">
+							<div class="gallery">
+								<div class="col-12">
+									<span class="icon solid fa-robot major"></span>
+									<h3>AI & Machine Learning Implementation</h3>
+									<p><strong>From Proof-of-Concept to Production at Scale</strong></p>
+									<ul>
+										<li>Led deployment of 7 AI-powered systems saving 2,500+ hours/year</li>
+										<li>Designed agentic AI architectures for enterprise automation</li>
+										<li>Implemented LLMs and automated benchmarking systems</li>
+										<li>Bank of Thailand advisor on AI in financial applications</li>
+									</ul>
+								</div>
 
-        /* --- THE LIST (Work/Programs) --- */
-        .project-list {
-            display: flex;
-            flex-direction: column;
-        }
+								<div class="col-12">
+									<span class="icon solid fa-cubes major"></span>
+									<h3>Web3 & Blockchain Architecture</h3>
+									<p><strong>6+ Years Building Decentralized Infrastructure</strong></p>
+									<ul>
+										<li>Co-founded Thailand's largest stake pool operator (600M THB AUM)</li>
+										<li>Technical due diligence on 50+ blockchain startups</li>
+										<li>Smart contract architecture and DeFi protocol design</li>
+										<li>Cross-chain implementation and regulatory compliance</li>
+									</ul>
+								</div>
 
-        .project-item {
-            position: relative;
-            padding: 3rem var(--gutter);
-            border-top: 1px solid rgba(0,0,0,0.1);
-            transition: background 0.3s;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+								<div class="col-12">
+									<span class="icon solid fa-atom major"></span>
+									<h3>Quantum Computing Applications</h3>
+									<p><strong>Bridging Quantum Solutions to Business Problems</strong></p>
+									<ul>
+										<li>Hosted Quantum Technology Foundation Thailand CEO</li>
+										<li>Translating quantum optimization to enterprise use cases</li>
+										<li>Published research with 100+ citations in quantum sensing</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</section>
 
-        .project-item:last-child {
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
+				<!-- Current Roles -->
+					<section id="roles">
+						<header>
+							<h2>Current Positions</h2>
+						</header>
+						<div class="content">
+							<ul class="feature-icons">
+								<li class="icon solid fa-briefcase">
+									<h3>Senior Technical Advisor</h3>
+									<p>SCB 10X ($700M Corporate VC) - Lead AI workflow strategy and implementation</p>
+								</li>
+								<li class="icon solid fa-university">
+									<h3>Assistant Professor</h3>
+									<p>Prince of Songkla University - Research in blockchain and AI applications</p>
+								</li>
+								<li class="icon solid fa-rocket">
+									<h3>Founder & Director</h3>
+									<p>Two Flamingos Capital & Flamingo 492 - Algorithmic trading and PropTech ventures</p>
+								</li>
+								<li class="icon solid fa-microphone">
+									<h3>Summit Organizer</h3>
+									<p>REDeFiNE Tomorrow - 6th annual global DeFi/Web3 summit with Bloomberg</p>
+								</li>
+							</ul>
+						</div>
+					</section>
 
-        .project-title {
-            font-size: clamp(3rem, 6vw, 6rem);
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: -0.03em;
-            color: transparent;
-            -webkit-text-stroke: 1px var(--text); /* Outline effect */
-            transition: all 0.4s var(--transition);
-        }
+				<!-- Speaking & Recognition -->
+					<section id="speaking">
+						<header>
+							<h2>Recent Speaking Engagements</h2>
+						</header>
+						<div class="content">
+							<ul class="alt">
+								<li><strong>2025</strong> - Quantum Computing Fireside Chat, SCB 10X</li>
+								<li><strong>2025</strong> - "Leading the Future with Agentic AI", Ananda All Hands</li>
+								<li><strong>2024</strong> - "AI Advantages & Risks in Financial Applications", Bank of Thailand</li>
+								<li><strong>2024</strong> - Master of Ceremonies, AI/ALL Summit Singapore</li>
+								<li><strong>2023</strong> - "Future of Work in AI-Driven Economy", AI Thailand Forum</li>
+							</ul>
+						</div>
+					</section>
 
-        .project-meta {
-            font-family: 'Inter', sans-serif;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: all 0.4s var(--transition);
-        }
+				<!-- Case Studies -->
+					<section id="cases">
+						<header>
+							<h2>Implementation Case Studies</h2>
+						</header>
+						<div class="content">
+							<div class="gallery">
+								<div class="col-12">
+									<span class="icon solid fa-chart-bar major"></span>
+									<h3>AI Transformation at $700M VC Fund</h3>
+									<p>Deployed 7 AI-powered systems automating deal sourcing, screening, and due diligence. Generated ฿85.3M in value and saved 2,500+ hours/year over 4 years. Positioned firm as AI-driven VC pioneer.</p>
+								</div>
 
-        /* HOVER EFFECTS */
-        .project-item:hover .project-title {
-            color: var(--text); /* Fill text */
-            -webkit-text-stroke: 0;
-            transform: translateX(20px);
-        }
-        
-        .project-item:hover .project-meta {
-            opacity: 1;
-            transform: translateX(0);
-        }
+								<div class="col-12">
+									<span class="icon solid fa-globe major"></span>
+									<h3>Global DeFi Summit Scale-up</h3>
+									<p>Scaled virtual summit from startup to 5,000+ attendees across 100+ countries. Curated content for 40+ industry leaders including Solana, Gauntlet, and Celestia founders.</p>
+								</div>
 
-        /* --- HOVER REVEAL IMAGE CONTAINER --- */
-        .hover-reveal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            background-size: cover;
-            background-position: center;
-            filter: grayscale(100%) contrast(1.2); /* Artistic filter */
-        }
-        
-        /* When hovering any project item, dim the background slightly */
-        body:has(.project-item:hover) {
-            background-color: #f0f0f0;
-        }
+								<div class="col-12">
+									<span class="icon solid fa-network-wired major"></span>
+									<h3>Blockchain Infrastructure Deployment</h3>
+									<p>Co-founded and scaled Thailand's largest stake pool operator to 600M THB AUM. Designed technical architecture for institutional-grade staking operations.</p>
+								</div>
+							</div>
+						</div>
+					</section>
 
-        /* Specific Images for items (using placeholders) */
-        .project-item:nth-child(1):hover ~ .hover-reveal {
-            background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop'); /* AI/Tech */
-            opacity: 0.15;
-        }
-        .project-item:nth-child(2):hover ~ .hover-reveal {
-            background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2000&auto=format&fit=crop'); /* Team/Leadership */
-            opacity: 0.15;
-        }
-        .project-item:nth-child(3):hover ~ .hover-reveal {
-            background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2000&auto=format&fit=crop'); /* Operations/Workspace */
-            opacity: 0.15;
-        }
-        .project-item:nth-child(4):hover ~ .hover-reveal {
-            background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2000&auto=format&fit=crop'); /* Productivity/Speed */
-            opacity: 0.15;
-        }
+				<!-- Services -->
+					<section id="services">
+						<header>
+							<h2>Consulting Services</h2>
+						</header>
+						<div class="content">
+							<p><strong>Available for engagements ranging from strategic assessment to full deployment:</strong></p>
+							<div class="table-wrapper">
+								<table>
+									<tbody>
+										<tr>
+											<td><strong>Strategic Assessment</strong></td>
+											<td>Technology roadmapping and feasibility analysis</td>
+										</tr>
+										<tr>
+											<td><strong>Proof of Concept</strong></td>
+											<td>Rapid prototyping and validation</td>
+										</tr>
+										<tr>
+											<td><strong>Implementation Leadership</strong></td>
+											<td>End-to-end deployment management</td>
+										</tr>
+										<tr>
+											<td><strong>Executive Advisory</strong></td>
+											<td>Board-level technology guidance</td>
+										</tr>
+										<tr>
+											<td><strong>Training Programs</strong></td>
+											<td>Custom workshops and knowledge transfer</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</section>
 
-        /* --- FOOTER CTA --- */
-        .footer-cta {
-            padding: 10rem var(--gutter) 5rem;
-            text-align: center;
-        }
-        .btn-large {
-            display: inline-block;
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            font-weight: 700;
-            color: var(--bg);
-            background: var(--accent);
-            padding: 1.5rem 4rem;
-            border-radius: 100px;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-decoration: none;
-        }
-        .btn-large:hover {
-            transform: scale(1.05);
-            background: var(--accent-hover);
-        }
+				<!-- Publications -->
+					<section id="publications">
+						<header>
+							<h2>Select Publications</h2>
+						</header>
+						<div class="content">
+							<p><strong>500+ Citations across Physics, AI, and Blockchain Research</strong></p>
+							<ul>
+								<li>2025: "Exploring Risk and Return Profiles of Funding Rate Arbitrage" - Blockchain: Research and Applications</li>
+								<li>2023: "NativeVRF: Decentralized Random Number Generator on EVM" - Systems</li>
+								<li>2022: "Flash Loan Attack Analysis Framework" - Informatics</li>
+								<li>2020: "Quantum Rotation Sensing with Dual Sagnac Interferometers" (104 citations) - Physical Review Letters</li>
+								<li>2012: "Vacuum Pressure Measurement Using Magneto-optical Trap" (163 citations) - Physical Review A</li>
+							</ul>
+						</div>
+					</section>
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .project-item { padding: 2rem 1rem; flex-direction: column; align-items: flex-start; }
-            .project-meta { display: none; }
-            .project-title { font-size: 2.5rem; color: var(--text); -webkit-text-stroke: 0; }
-            .marquee-container { display: none; } /* Hide marquee on mobile */
-            .cursor-dot, .cursor-outline { display: none; } /* No custom cursor on touch */
-            * { cursor: auto; }
-        }
-    </style>
-</head>
-<body>
+				<!-- Contact -->
+					<section id="contact">
+						<header>
+							<h2>Get In Touch</h2>
+						</header>
+						<div class="content">
+							<p><strong>Ready to transform your organization with cutting-edge technology?</strong></p>
+							<ul class="actions">
+								<li><a href="mailto:tanwa@flamingo492.com" class="button primary large">Contact Me</a></li>
+								<li><a href="https://www.linkedin.com/in/tanwa-arpornthip-37ba04137/" class="button large">LinkedIn</a></li>
+							</ul>
+							<p>Email: tanwa@flamingo492.com<br />
+							Location: Bangkok, Thailand | Available globally</p>
+						</div>
+					</section>
 
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+				<!-- Footer -->
+					<section>
+						<footer>
+							<p>&copy; 2024 Asst. Prof. Tanwa Arpornthip, Ph.D. All rights reserved.<br />
+							Design: <a href="http://html5up.net">HTML5 UP</a></p>
+						</footer>
+					</section>
 
-    <div class="hover-reveal"></div>
+			</div>
 
-    <header>
-        <div class="logo">Flamingo<span>492</span></div>
-        <div class="menu-btn">Menu +</div>
-    </header>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-    <main class="content-layer">
-        
-        <div class="hero-statement">
-            We help teams <br>
-            <span>work better</span>, <br>
-            think smarter, <br>
-            and grow faster.
-        </div>
-
-        <div class="project-list" id="program-list">
-            
-            <div class="project-item">
-                <a href="#" class="project-title">AI Workflow</a>
-                <div class="project-meta">Generative Automation • Systems Design</div>
-            </div>
-
-            <div class="project-item">
-                <a href="#" class="project-title">Leadership</a>
-                <div class="project-meta">Clarity Intensive • Strategic Focus</div>
-            </div>
-
-            <div class="project-item">
-                <a href="#" class="project-title">Operations</a>
-                <div class="project-meta">Lean Principles • Process Redesign</div>
-            </div>
-
-            <div class="project-item">
-                <a href="#" class="project-title">Productivity</a>
-                <div class="project-meta">Team Accelerator • Skill Building</div>
-            </div>
-
-        </div>
-
-        <div class="footer-cta">
-            <a href="#" class="btn-large" data-hover-text="Let's Talk">Book Strategy Call</a>
-            <p style="margin-top: 2rem; font-family: 'Inter'; color: #666;">Bangkok, Thailand</p>
-        </div>
-
-    </main>
-
-    <div class="marquee-container">
-        <div class="marquee-content">
-            <span class="marquee-item">Corporate Training</span>
-            <span class="marquee-item">Strategy Advisory</span>
-            <span class="marquee-item">AI Transformation</span>
-            <span class="marquee-item">Workflow Mastery</span>
-            <span class="marquee-item">Operational Excellence</span>
-            <span class="marquee-item">Corporate Training</span>
-            <span class="marquee-item">Strategy Advisory</span>
-            <span class="marquee-item">AI Transformation</span>
-            <span class="marquee-item">Workflow Mastery</span>
-            <span class="marquee-item">Operational Excellence</span>
-        </div>
-    </div>
-
-    <script>
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-        const items = document.querySelectorAll('.project-item, a');
-
-        window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-
-            // Dot follows instantly
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-
-            // Outline follows with slight delay (handled by CSS transition usually, but let's force position)
-            // Using animate for smooth trailing effect
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 500, fill: "forwards" });
-        });
-
-        // Add hover classes
-        items.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                document.body.classList.add('hovering');
-            });
-            item.addEventListener('mouseleave', () => {
-                document.body.classList.remove('hovering');
-            });
-        });
-    </script>
-</body>
+	</body>
 </html>
