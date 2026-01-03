@@ -1,0 +1,18 @@
+# robots.txt for tanwa.info
+# Professional Portfolio Site
+
+User-agent: *
+Allow: /
+
+# Allow all crawlers access to the site
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://tanwa.info/sitemap.xml
+
+# Disallow admin or private paths (none currently)
+# Disallow: /private/

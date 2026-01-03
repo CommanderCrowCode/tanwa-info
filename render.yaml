@@ -1,0 +1,60 @@
+# Render Static Site Blueprint
+# Deploy at: https://dashboard.render.com/select-repo?type=static
+
+services:
+  - type: web
+    name: tanwa-info
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: true
+
+    # Custom domain (configure in Render dashboard)
+    # domains:
+    #   - tanwa.info
+    #   - www.tanwa.info
+
+    # Security Headers
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-XSS-Protection
+        value: "1; mode=block"
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: Permissions-Policy
+        value: camera=(), microphone=(), geolocation=()
+      - path: /*
+        name: Strict-Transport-Security
+        value: max-age=31536000; includeSubDomains; preload
+      - path: /*
+        name: Content-Security-Policy
+        value: >-
+          default-src 'self';
+          script-src 'self' 'unsafe-inline';
+          style-src 'self' 'unsafe-inline';
+          img-src 'self' data: https:;
+          font-src 'self' data:;
+          connect-src 'self';
+          frame-ancestors 'self';
+          base-uri 'self';
+          form-action 'self'
+
+    # Caching for static assets
+    routes:
+      - type: rewrite
+        source: /assets/**
+        destination: /assets/**
+      - type: rewrite
+        source: /images/**
+        destination: /images/**
+
+    # Custom 404 page
+    notFoundRoute: /404.html
