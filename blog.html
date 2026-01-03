@@ -16,15 +16,80 @@
 		<meta property="og:description" content="From Lab to Market: Practical insights on implementing AI, Web3, and frontier technology in enterprise environments." />
 		<meta property="og:type" content="blog" />
 
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<style>
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --quantum-purple: #8a2be2;
+                --midnight-depth: #0a0e27;
+                --trust-navy: #1a237e;
+                --success-green: #00c853;
+                --caution-amber: #ff6f00;
+                --neutral-silver: #b0bec5;
+                --pure-white: #ffffff;
+                --authority-gradient: linear-gradient(135deg, rgba(138,43,226,0.1) 0%, rgba(26,35,126,0.1) 100%);
+                --tech-glow: 0 0 30px rgba(138,43,226,0.3);
+            }
+            body.blog-focus { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+            body.blog-focus h1, body.blog-focus h2, body.blog-focus h3, body.blog-focus h4, body.blog-focus h5 { font-family: 'Poppins', 'Inter', sans-serif; }
+            /* Remove decorative divider lines on large screens */
+            body.blog-focus #wrapper > section > header:before,
+            body.blog-focus #wrapper > section > header h1:before,
+            body.blog-focus #wrapper > section > header h1:after,
+            body.blog-focus #wrapper > section > header h2:before,
+            body.blog-focus #wrapper > section > header h2:after { display: none !important; }
+            .proof-points { display: flex; gap: 1.25rem; margin: 0.75rem 0 0.5rem; padding: 0; list-style: none; }
+            .proof-points li { font-weight: 600; font-size: 0.9rem; }
+            .proof-points li span { font-weight: 700; color: var(--success-green); }
+			/* Blog-specific layout: shrink green sidebar, widen content */
+            body.blog-focus #wrapper:before {
+                width: 24vw;
+                background-size: 48% auto;
+                background-position: -25% 10%;
+                position: fixed;
+                height: 100vh;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+            }
+            body.blog-focus #wrapper section {
+                grid-template-columns: 24vw 1fr;
+                grid-template-areas: 'header content' 'footer content';
+            }
+            @media screen and (max-width: 980px) {
+                body.blog-focus #wrapper:before { width: 40vw; background-size: 80% auto; }
+                body.blog-focus #wrapper section { grid-template-columns: 40vw 1fr; grid-template-areas: 'header content' 'footer content'; }
+                body.blog-focus #wrapper > section.intro > header > * { max-width: calc(40vw - 1rem); }
+            }
+            @media screen and (max-width: 736px) {
+                body.blog-focus #wrapper:before { width: 100vw; background-size: 150% auto; background-position: 50% -3%; }
+                body.blog-focus #wrapper section { grid-template-columns: 100vw; }
+                body.blog-focus #wrapper > section.intro > header > * { width: 100%; }
+            }
+            /* Intro overrides to keep hero compact and align content at top */
+            body.blog-focus #wrapper > section.intro { align-items: start; }
+            body.blog-focus #wrapper > section.intro > .content { height: auto; max-width: none; padding-top: 0.5rem; }
+            body.blog-focus #wrapper > section.intro > header {
+                padding: 0.5rem 0.75rem 0.25rem 0.75rem;
+                position: relative;
+                width: auto;
+                text-align: left;
+                justify-self: start;
+            }
+            body.blog-focus #wrapper > section.intro > header ul.actions { display: none; }
+            body.blog-focus #wrapper > section.intro > header > * { width: 100%; max-width: calc(24vw - 0.5rem); }
+            body.blog-focus p.credentials { text-transform: none; letter-spacing: 0.01em; line-height: 1.5; font-size: 1.05rem; }
+            /* Make all intro header paragraphs more compact and wider-looking */
+            body.blog-focus #wrapper > section.intro > header p { text-transform: none; letter-spacing: 0.01em; line-height: 1.6; font-size: 1.05rem; text-align: left; white-space: normal; word-break: normal; }
+            body.blog-focus h1 { font-size: clamp(2.2rem, 3.3vw, 3rem); line-height: 1.15; letter-spacing: -0.03em; }
+
 			/* Custom styles for better content density */
-			.article-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-				gap: 2rem;
-				margin: 2rem 0;
-			}
+            .article-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 1.5rem;
+                margin: 1rem 0;
+            }
 			.article-card {
 				border: 1px solid rgba(255,255,255,0.1);
 				padding: 1.5rem;
@@ -48,59 +113,79 @@
 				font-size: 0.8rem;
 				margin-right: 0.5rem;
 			}
-			.featured-banner {
-				background: linear-gradient(135deg, rgba(138,43,226,0.1) 0%, rgba(75,0,130,0.1) 100%);
-				padding: 2rem;
-				border-radius: 8px;
-				margin-bottom: 2rem;
-			}
-			.compact-section {
-				padding: 2rem 0;
-			}
-			.sidebar-nav {
-				position: sticky;
-				top: 2rem;
-			}
+            .featured-banner {
+                background: var(--authority-gradient);
+                padding: 1rem 1rem 0.75rem;
+                border-radius: 8px;
+                margin-bottom: 0.25rem;
+            }
+            .featured-banner h2 { margin: 0.5rem 0; }
+            .featured-banner p { margin: 0.5rem 0; }
+            .button.primary { background: var(--quantum-purple); color: var(--pure-white); border-color: transparent; }
+            .button.primary:hover { filter: brightness(1.05); box-shadow: var(--tech-glow); }
+            /* stronger button contrast to improve readability */
+            body.blog-focus .button.primary { background-color: var(--quantum-purple) !important; color: var(--pure-white) !important; box-shadow: none !important; border: 0 !important; }
+            body.blog-focus .button.primary:hover { filter: brightness(1.08); }
+            /* Pull main content closer under featured */
+            body.blog-focus #wrapper > section.compact-section > .content { padding: 0.5rem 2rem; }
+            body.blog-focus h3 { margin: 0.5rem 0 0.5rem 0; }
+            /* top nav spanning right column */
+            .blog-topnav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; }
+            .blog-topnav .button { height: 2.5rem; line-height: 2.5rem; padding: 0 1rem; }
+            .blog-topnav form { flex: 1; display: flex; justify-content: flex-end; }
+            .blog-topnav input[type="search"] { width: 60%; max-width: 22rem; padding: 0.6rem 0.75rem; border-radius: 6px; border: 1px solid rgba(0,0,0,0.1); }
+            @media screen and (max-width: 736px) { .blog-topnav { flex-wrap: wrap; gap: 0.5rem; } .blog-topnav form { width: 100%; justify-content: stretch; } .blog-topnav input[type="search"] { width: 100%; max-width: none; } }
+            .compact-section { padding: 1rem 0; }
+            .sidebar-nav {
+                position: sticky;
+                top: 2rem;
+            }
+            .article-grid { gap: 1.5rem; }
 		</style>
 	</head>
-	<body class="is-preload">
+	<body class="is-preload blog-focus">
 
 		<!-- Wrapper -->
 			<div id="wrapper">
 
 				<!-- Compact Header -->
 				<section class="intro" style="min-height: auto; padding: 3rem 0;">
-					<header>
-						<h1>Technology Insights</h1>
-						<p>Practical implementation guides from ฿85.3M of deployed AI systems</p>
-						<ul class="actions">
-							<li><a href="index.html" class="button">Home</a></li>
-							<li><input type="search" placeholder="Search articles..." style="padding: 0.5rem; border-radius: 4px;" /></li>
-						</ul>
-					</header>
+                    <header>
+                        <h1>Technology Insights</h1>
+                        <p class="credentials">Asst. Prof. Tanwa Arpornthip, Ph.D. — Senior Technical Advisor, SCB 10X</p>
+                        <!-- metrics removed per feedback -->
+                        <p>Practical implementation guides from ฿85.3M of deployed AI systems</p>
+                        <!-- original header actions hidden; top nav added in content column -->
+                    </header>
+                    <div class="content">
+                        <nav class="blog-topnav" aria-label="Blog Navigation">
+                            <a href="index.html" class="button small">Home</a>
+                            <form role="search" aria-label="Search articles">
+                                <input type="search" aria-label="Search articles" placeholder="Search articles..." />
+                            </form>
+                        </nav>
+                        <div class="featured-banner" aria-labelledby="featured-title">
+                            <span class="tag">FEATURED</span>
+                            <span class="tag">AI IMPLEMENTATION</span>
+                            <h2 id="featured-title" style="margin: 1rem 0;">How We Generated ฿85.3M Through AI Transformation at SCB 10X</h2>
+                            <p class="article-meta">September 2024 • 12 min read • 1,247 views</p>
+                            <p>Deep dive into 7 AI-powered systems deployed at a $700M VC fund, automating deal sourcing, screening, and due diligence while saving 2,500+ hours annually. Real metrics, real implementation, real results.</p>
+                            <ul class="actions" style="margin-top: 1rem;">
+                                <li><a href="articles/ai-transformation-scb10x.html" class="button primary">Read Full Case Study</a></li>
+                                <li><a href="#" class="button small" aria-label="Download case study as PDF">Download PDF</a></li>
+                            </ul>
+                        </div>
+                    </div>
 				</section>
 
 				<!-- Main Content Area -->
 				<section class="compact-section">
-					<div class="content">
-						<div style="display: grid; grid-template-columns: 3fr 1fr; gap: 3rem;">
+                    <div class="content">
+                        <div style="display: grid; grid-template-columns: 4fr 1fr; gap: 1.5rem;">
 
-							<!-- Main Blog Content -->
-							<div>
-								<!-- Featured Article -->
-								<div class="featured-banner">
-									<span class="tag">FEATURED</span>
-									<span class="tag">AI IMPLEMENTATION</span>
-									<h2 style="margin: 1rem 0;">How We Generated ฿85.3M Through AI Transformation at SCB 10X</h2>
-									<p class="article-meta">September 2024 • 12 min read • 1,247 views</p>
-									<p>Deep dive into 7 AI-powered systems deployed at a $700M VC fund, automating deal sourcing, screening, and due diligence while saving 2,500+ hours annually. Real metrics, real implementation, real results.</p>
-									<ul class="actions" style="margin-top: 1rem;">
-										<li><a href="articles/ai-transformation-scb10x.html" class="button primary">Read Full Case Study</a></li>
-										<li><a href="#" class="button small">Download PDF</a></li>
-									</ul>
-								</div>
-
-								<!-- Recent Articles Grid -->
+                        <!-- Main Blog Content -->
+                        <div>
+                            <!-- Recent Articles Grid -->
 								<h3>Recent Articles</h3>
 								<div class="article-grid">
 									<!-- Article 1 -->
@@ -165,24 +250,24 @@
 								</div>
 
 								<!-- Load More -->
-								<div style="text-align: center; margin: 2rem 0;">
-									<button class="button">Load More Articles</button>
+                        <div style="text-align: center; margin: 1rem 0;">
+                            <button class="button" aria-label="Load more articles">Load More Articles</button>
 								</div>
 							</div>
 
-							<!-- Sidebar -->
-							<div class="sidebar-nav">
-								<!-- Topics -->
-								<div style="margin-bottom: 2rem;">
-									<h4>Topics</h4>
-									<ul class="alt">
-										<li><a href="#">AI Implementation (8)</a></li>
-										<li><a href="#">Web3/Blockchain (6)</a></li>
-										<li><a href="#">Venture Capital (5)</a></li>
-										<li><a href="#">Quantum Computing (3)</a></li>
-										<li><a href="#">Risk Management (4)</a></li>
-									</ul>
-								</div>
+                        <!-- Sidebar -->
+                        <nav class="sidebar-nav" aria-label="Blog Sidebar">
+                            <!-- Topics (moved above Most Read) -->
+                            <div style="margin-bottom: 2rem;">
+                                <h4>Topics</h4>
+                                <ul class="alt">
+                                    <li><a href="#">AI Implementation (8)</a></li>
+                                    <li><a href="#">Web3/Blockchain (6)</a></li>
+                                    <li><a href="#">Venture Capital (5)</a></li>
+                                    <li><a href="#">Quantum Computing (3)</a></li>
+                                    <li><a href="#">Risk Management (4)</a></li>
+                                </ul>
+                            </div>
 
 								<!-- Popular Posts -->
 								<div style="margin-bottom: 2rem;">
@@ -255,20 +340,35 @@
 							<li><a href="index.html" class="button">Back to Main Site</a></li>
 							<li><a href="#" class="button">RSS Feed</a></li>
 						</ul>
-						<p>&copy; 2024 Asst. Prof. Tanwa Arpornthip, Ph.D. All rights reserved.<br />
-						Design: <a href="http://html5up.net">HTML5 UP</a></p>
-					</footer>
-				</section>
+                    <p>&copy; 2024 Asst. Prof. Tanwa Arpornthip, Ph.D. All rights reserved.<br />
+                    Design: <a href="http://html5up.net" rel="noopener noreferrer">HTML5 UP</a></p>
+                </footer>
+            </section>
 
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+        <!-- Structured Data for SEO -->
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Blog",
+              "name": "Technology Insights",
+              "url": "https://tanwa.info/blog.html",
+              "publisher": {
+                "@type": "Person",
+                "name": "Asst. Prof. Tanwa Arpornthip, Ph.D.",
+                "jobTitle": "Senior Technical Advisor, SCB 10X"
+              }
+            }
+            </script>
+
+        <!-- Scripts -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/jquery.scrolly.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
 
 	</body>
 </html>
