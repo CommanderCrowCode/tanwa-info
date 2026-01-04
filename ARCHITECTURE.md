@@ -356,14 +356,67 @@ Push to `main` branch triggers automatic Render deployment. PR previews are enab
 
 ---
 
+## External Services & Integrations
+
+### Analytics (Umami)
+
+Privacy-respecting, cookie-free analytics hosted at `analytics.lumicello.com`.
+
+```html
+<script defer src="https://analytics.lumicello.com/script.js"
+        data-website-id="31a60b26-0f0a-4c7b-a871-ff8db375f6d2"></script>
+```
+
+**Features**:
+- No cookies, GDPR compliant
+- Self-hosted instance
+- Tracks page views, referrers, devices
+
+### Newsletter (Ghost)
+
+Embedded signup form from Ghost blog at `flight-notes.ghost.io`.
+
+```html
+<script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.3/umd/signup-form.min.js"
+        data-site="https://flight-notes.ghost.io/" async></script>
+```
+
+**Features**:
+- Weekly "Flight Notes" newsletter
+- Managed through Ghost dashboard
+- Automatic subscriber sync
+
+### Contact Form (Formspree)
+
+Server-side form handling via Formspree (form ID: `mgovrvqp`).
+
+```html
+<form action="https://formspree.io/f/mgovrvqp" method="POST">
+```
+
+**Features**:
+- No backend required
+- Spam filtering
+- Email notifications to site owner
+
+### CSP Configuration
+
+Content Security Policy updated in `render.yaml` for external services:
+
+| Service | Domains Allowed |
+|---------|-----------------|
+| Analytics | `analytics.lumicello.com` |
+| Newsletter | `cdn.jsdelivr.net`, `flight-notes.ghost.io` |
+| Contact Form | `formspree.io` |
+| Fonts | `fonts.googleapis.com`, `fonts.gstatic.com` |
+
+---
+
 ## Future Considerations
 
-1. **Newsletter Integration**: Currently placeholder form
-2. **Search Functionality**: Static search (Lunr.js/Pagefind)
-3. **Article CMS**: Consider headless CMS for content management
-4. **Analytics**: Add privacy-respecting analytics (Plausible/Fathom)
-5. **Image Optimization**: Implement responsive images with srcset
-6. **Contact Form**: Replace mailto with form submission
+1. **Search Functionality**: Static search (Lunr.js/Pagefind)
+2. **Article CMS**: Consider headless CMS for content management
+3. **Image Optimization**: Implement responsive images with srcset
 
 ---
 
