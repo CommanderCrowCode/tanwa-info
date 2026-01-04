@@ -100,3 +100,4 @@ credentials/
 
 # Swap files
 ~*.*
+state.json
