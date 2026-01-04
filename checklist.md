@@ -3,6 +3,11 @@ Based on your positioning strategy and current HTML implementation, I'll create 
 # TANWA.INFO DESIGN BIBLE
 *The definitive guide for maintaining design consistency and professional authority*
 
+> **Note (Jan 2026):** The site has evolved to use a light coral theme (`#E6524A` accent on
+> `#FAF9F7` background) instead of the dark purple theme documented below. Core principles
+> (authority-first, results-focused) remain valid. Color section should be updated in a
+> future design refresh.
+
 ## 1. BRAND POSITIONING STATEMENT
 **"From Research to Revenue. From Theory to Transformation."**
 
