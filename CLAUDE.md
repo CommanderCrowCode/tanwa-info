@@ -1,77 +1,88 @@
 # tanwa.info Project Instructions
 
-> **Recovery**: Run `bd onboard` after clear or new session
+Static HTML portfolio site for Asst. Prof. Tanwa Arpornthip, Ph.D.
+
+## Quick Start
+
+```bash
+# Local development
+uv run python -m http.server 8999
+
+# Access at http://localhost:8999
+```
 
 ## Project Overview
 
-**tanwa.info** is a static portfolio website for Asst. Prof. Tanwa Arpornthip, Ph.D.
-
 - **Domain**: https://tanwa.info
-- **Hosting**: Render.com (static site, auto-deploys on push to main)
-- **Stack**: Pure HTML/CSS/JS (no build step)
+- **Hosting**: Render.com (static site)
+- **Base Template**: HTML5 UP (heavily customized)
+- **Dev Port**: 8999
 
 ## Key Files
 
 | File | Purpose |
 |------|---------|
-| `index.html` | Homepage - identity and expertise |
-| `blog.html` | Blog listing page |
-| `articles/*.html` | Individual article pages |
-| `assets/css/main.css` | Compiled CSS (from SASS) |
-| `assets/sass/` | SASS source files |
-| `checklist.md` | Design Bible - brand guidelines |
-| `ARCHITECTURE.md` | Technical architecture reference |
+| `index.html` | Homepage - identity, expertise, ventures |
+| `404.html` | Custom error page |
+| `ARCHITECTURE.md` | Detailed site structure documentation |
+| `checklist.md` | Design specifications and guidelines |
+| `render.yaml` | Render.com deployment config |
 
-## Design Guidelines
-
-Follow the **Design Bible** in `checklist.md`. Key principles:
-
-1. **Authority First**: Lead with credentials ("Asst. Prof.", "Ph.D.") and metrics
-2. **Results Over Rhetoric**: Quantify everything (85.3M THB, $700M, etc.)
-3. **Professional Appearance**: Dark theme with quantum-purple accents (#8a2be2)
-4. **Progressive Disclosure**: Summary → Details → Deep Dive
-
-## Development Workflow
-
-### Making Changes
-
-1. Edit HTML files directly (no build step for HTML)
-2. For style changes, edit SASS then compile to `assets/css/main.css`
-3. Test locally before committing
-4. Push to `main` triggers auto-deploy on Render
-
-### Adding New Articles
-
-1. Create HTML file in `articles/`
-2. Add entry to `blog.html` grid
-3. Update `sitemap.xml`
-4. Include proper Schema.org Article markup
-
-### Updating Metrics
-
-Key metrics appear in multiple locations - update consistently:
-- `index.html` (Impact section)
-- `blog.html` (credentials in header/sidebar)
-- `<meta>` descriptions
-
-## SEO Checklist
-
-When adding/modifying pages:
-- [ ] Meta title and description
-- [ ] Open Graph tags (og:title, og:description, og:image)
-- [ ] Twitter Card tags
-- [ ] Schema.org structured data
-- [ ] Update sitemap.xml
-
-## Session End Checklist
+## Directory Structure
 
 ```
-[ ] git status              (check what changed)
-[ ] git add <files>         (stage changes)
-[ ] bd sync                 (commit beads changes)
-[ ] git commit -m "..."     (commit code)
-[ ] bd sync                 (commit any new beads)
-[ ] git push                (push to remote - MANDATORY)
+├── index.html              # Main page
+├── 404.html                # Error page
+├── articles/               # Blog articles (if created)
+├── assets/
+│   ├── css/main.css        # Compiled styles
+│   ├── js/                 # JavaScript
+│   └── sass/               # SASS sources
+├── images/                 # Site images
+└── specs/                  # Design specs
 ```
 
-Work is NOT complete until `git push` succeeds.
+## Design System
+
+**Color Palette**:
+- Coral accent: `#f56a6a`
+- Light background: `#ffffff`
+- Dark text: `#333333`
+
+**Fonts**:
+- Body: Inter
+- Headings: Poppins
+
+## Making Changes
+
+### Adding Content
+1. Edit HTML files directly
+2. Test locally with `python -m http.server 8999`
+3. Commit and push (Render auto-deploys)
+
+### Modifying Styles
+1. Edit SASS in `assets/sass/`
+2. Compile to `assets/css/main.css`
+3. Test before deploying
+
+### Key Sections in index.html
+- Hero (`.intro`)
+- Impact Numbers (`#impact`)
+- Core Expertise (`#expertise`)
+- Ventures (`#ventures`)
+- Contact (`#contact`)
+
+## Deployment
+
+Push to `main` triggers automatic Render deployment. PR previews are enabled.
+
+## External Services
+
+- **Blog**: Linked to external Ghost blog at flight-notes.ghost.io
+- **Contact**: mailto: links (no form backend)
+
+## Reference Docs
+
+- `ARCHITECTURE.md` - Full technical documentation
+- `checklist.md` - Design bible and specifications
+- `specs/personal_specs.md` - Personal branding guidelines
