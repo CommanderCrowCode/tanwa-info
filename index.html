@@ -299,6 +299,48 @@
             font-size: 0.85rem;
         }
 
+        /* Contact Form */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto 3rem;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            padding: 1rem 1.25rem;
+            border: 1px solid var(--secondary);
+            border-radius: 8px;
+            background: var(--bg);
+            color: var(--text);
+            transition: border-color 0.2s;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            margin: 2rem 0 3rem;
+        }
+        .newsletter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             header { padding: 1rem; }
@@ -404,7 +446,20 @@
         </div>
 
         <div class="footer-cta" id="contact">
-            <a href="mailto:tanwa@flamingo492.com" class="btn-large">Let's Talk</a>
+            <!-- Contact Form -->
+            <form action="https://formspree.io/f/mgovrvqp" method="POST" class="contact-form">
+                <input type="email" name="email" placeholder="Your email" required>
+                <textarea name="message" placeholder="Your message" rows="3" required></textarea>
+                <button type="submit" class="btn-large">Let's Talk</button>
+            </form>
+
+            <!-- Newsletter Signup -->
+            <div class="newsletter-section">
+                <p class="newsletter-label">Weekly insights on AI, trading & building</p>
+                <div style="min-height: 58px;max-width: 440px;margin: 0 auto;width: 100%">
+                    <script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.3/umd/signup-form.min.js" data-button-color="#E6524A" data-button-text-color="#FFFFFF" data-site="https://flight-notes.ghost.io/" data-locale="en" async></script>
+                </div>
+            </div>
 
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/tanwa-arpornthip-37ba04137/">LinkedIn</a>
@@ -452,5 +507,12 @@
             item.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
         });
     </script>
+
+    <!-- Umami Analytics (privacy-respecting, no cookies) -->
+    <script
+        defer
+        src="https://analytics.lumicello.com/script.js"
+        data-website-id="31a60b26-0f0a-4c7b-a871-ff8db375f6d2"
+    ></script>
 </body>
 </html>
