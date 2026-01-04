@@ -29,11 +29,22 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Tanwa Arpornthip",
-        "jobTitle": "Founder & Senior Advisor",
+        "jobTitle": "Senior Technical Advisor",
         "worksFor": {"@type": "Organization", "name": "SCB 10X"},
-        "knowsAbout": ["AI", "Blockchain", "Web3", "Quantum Computing", "DeFi"],
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Virginia"
+        },
+        "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "Ph.D. Experimental Atomic Physics"
+        },
+        "award": "WikiExpo 2024 - Most Influential Work in AI in Fintech",
+        "knowsAbout": ["AI", "Blockchain", "DeFi", "Technical Due Diligence", "Venture Capital", "Quantum Physics"],
         "sameAs": [
             "https://www.linkedin.com/in/tanwa-arpornthip-37ba04137/",
+            "https://twitter.com/tanwaarpornthip",
             "https://scholar.google.com/citations?user=xtIiVDkAAAAJ",
             "https://github.com/CommanderCrowCode",
             "https://medium.com/@tanwa.a"
@@ -299,46 +310,74 @@
             font-size: 0.85rem;
         }
 
+        /* Footer Grid Layout */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            text-align: left;
+        }
+        .footer-section-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
         /* Contact Form */
         .contact-form {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            max-width: 500px;
-            margin: 0 auto 3rem;
+            gap: 0.75rem;
         }
         .contact-form input,
         .contact-form textarea {
             font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            padding: 1rem 1.25rem;
+            font-size: 0.95rem;
+            padding: 0.875rem 1rem;
             border: 1px solid var(--secondary);
-            border-radius: 8px;
-            background: var(--bg);
+            border-radius: 6px;
+            background: #fff;
             color: var(--text);
-            transition: border-color 0.2s;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
         .contact-form input:focus,
         .contact-form textarea:focus {
             outline: none;
             border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(230, 82, 74, 0.1);
         }
         .contact-form textarea {
             resize: vertical;
-            min-height: 100px;
+            min-height: 80px;
+        }
+        .contact-form button {
+            align-self: flex-start;
+            padding: 0.875rem 2rem;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            margin-top: 0.5rem;
         }
 
         /* Newsletter Section */
-        .newsletter-section {
-            margin: 2rem 0 3rem;
-        }
-        .newsletter-label {
+        .newsletter-section p {
             font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #888;
-            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Divider */
+        .footer-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--secondary);
+            margin: 0 auto 2rem;
         }
 
         /* Responsive */
@@ -355,6 +394,9 @@
             .metrics-bar { gap: 2rem; }
             .metric-value { font-size: 1.8rem; }
             .social-links { flex-wrap: wrap; gap: 1rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+            .contact-form button { align-self: center; }
+            .footer-section-title { margin-bottom: 1rem; }
         }
     </style>
 </head>
@@ -384,8 +426,8 @@
         </div>
 
         <p class="hero-sub">
-            Founder & investor operating at the intersection of markets, automation, and learning.
-            Senior Advisor at $700M VC.
+            UVA Physics PhD turned VC tech advisor. Senior Technical Advisor at $700M VC.
+            WikiExpo 2024 Award Winner for AI in Fintech.
         </p>
 
         <div class="metrics-bar">
@@ -398,7 +440,7 @@
                 <div class="metric-label">VC Fund Advised</div>
             </div>
             <div class="metric">
-                <div class="metric-value">500+</div>
+                <div class="metric-value">400+</div>
                 <div class="metric-label">Citations</div>
             </div>
             <div class="metric">
@@ -446,26 +488,35 @@
         </div>
 
         <div class="footer-cta" id="contact">
-            <!-- Contact Form -->
-            <form action="https://formspree.io/f/mgovrvqp" method="POST" class="contact-form">
-                <input type="email" name="email" placeholder="Your email" required>
-                <textarea name="message" placeholder="Your message" rows="3" required></textarea>
-                <button type="submit" class="btn-large">Let's Talk</button>
-            </form>
+            <div class="footer-grid">
+                <!-- Contact Form -->
+                <div class="footer-column">
+                    <h3 class="footer-section-title">Get in Touch</h3>
+                    <form action="https://formspree.io/f/mgovrvqp" method="POST" class="contact-form">
+                        <input type="email" name="email" placeholder="Your email" required>
+                        <textarea name="message" placeholder="What's on your mind?" rows="3" required></textarea>
+                        <button type="submit" class="btn-large">Send Message</button>
+                    </form>
+                </div>
 
-            <!-- Newsletter Signup -->
-            <div class="newsletter-section">
-                <p class="newsletter-label">Weekly insights on AI, trading & building</p>
-                <div style="min-height: 58px;max-width: 440px;margin: 0 auto;width: 100%">
-                    <script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.3/umd/signup-form.min.js" data-button-color="#E6524A" data-button-text-color="#FFFFFF" data-site="https://flight-notes.ghost.io/" data-locale="en" async></script>
+                <!-- Newsletter Signup -->
+                <div class="footer-column newsletter-section">
+                    <h3 class="footer-section-title">Flight Notes</h3>
+                    <p>Unpacking how tiny AI-augmented teams punch like institutions. Weekly signal-dense dispatches.</p>
+                    <div style="min-height: 58px;width: 100%">
+                        <script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.3/umd/signup-form.min.js" data-button-color="#E6524A" data-button-text-color="#FFFFFF" data-site="https://flight-notes.ghost.io/" data-locale="en" async></script>
+                    </div>
                 </div>
             </div>
 
+            <div class="footer-divider"></div>
+
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/tanwa-arpornthip-37ba04137/">LinkedIn</a>
+                <a href="https://twitter.com/tanwaarpornthip">Twitter</a>
                 <a href="https://scholar.google.com/citations?user=xtIiVDkAAAAJ">Scholar</a>
                 <a href="https://github.com/CommanderCrowCode">GitHub</a>
-                <a href="https://medium.com/@tanwa.a">Medium</a>
+                <a href="https://flight-notes.ghost.io" target="_blank">Newsletter</a>
             </div>
 
             <p class="footer-info">Bangkok, Thailand • Available Globally</p>

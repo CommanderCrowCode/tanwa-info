@@ -1,0 +1,80 @@
+# Tanwa Arpornthip - Structured Profile Data
+# Auto-populated from research, verified against sources
+
+identity:
+  name: "Tanwa Arpornthip"
+  title: "Asst. Prof., Ph.D."  # From existing site
+  tagline: "Builder of AI-driven financial and human-capability systems"
+  credentials: []
+
+metrics:
+  - label: "Value Generated"
+    value: "฿85.3M"
+    source: "existing site - needs verification"
+    verified: false
+  - label: "VC Fund Advised"
+    value: "$700M"
+    source: "existing site - needs verification"
+    verified: false
+  - label: "Citations"
+    value: "500+"
+    source: "existing site - verify against Scholar"
+    verified: false
+  - label: "Summit Attendees"
+    value: "5,000+"
+    source: "existing site - needs verification"
+    verified: false
+
+experience: []
+# To be populated from LinkedIn
+
+education: []
+# To be populated from LinkedIn
+
+publications: []
+# To be populated from Google Scholar
+
+ventures:
+  - name: "Two Flamingos"
+    tagline: "Algorithmic Trading • Delta-Neutral"
+    description: ""
+    url: ""
+    role: ""
+  - name: "Flamingo 492"
+    tagline: "Advisory • Corporate Training"
+    description: ""
+    url: ""
+    role: ""
+  - name: "Lumicello"
+    tagline: "AI Learning • Personalization"
+    description: ""
+    url: ""
+    role: ""
+  - name: "Vector"
+    tagline: "AI Fitness • HYROX Performance"
+    description: ""
+    url: ""
+    role: ""
+
+roles:
+  - org: "SCB 10X"
+    title: "Senior Technical Advisor"
+    context: "$700M VC"
+    description: ""
+  - org: "PSU Phuket"
+    title: "Assistant Professor"
+    context: "AI & Blockchain"
+    description: ""
+  - org: "REDeFiNE"
+    title: "Summit Organizer"
+    context: "5,000+ Attendees"
+    description: ""
+
+speaking_topics: []
+# To be populated from research
+
+social:
+  linkedin: "https://www.linkedin.com/in/tanwa-arpornthip-37ba04137/"
+  scholar: "https://scholar.google.com/citations?user=xtIiVDkAAAAJ"
+  github: "https://github.com/CommanderCrowCode"
+  newsletter: "https://flight-notes.ghost.io"
