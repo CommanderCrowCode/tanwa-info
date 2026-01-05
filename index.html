@@ -356,9 +356,95 @@
             .metric-value { font-size: 1.8rem; }
             .social-links { flex-wrap: wrap; gap: 1rem; }
         }
+
+        /* Search Modal */
+        .search-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 10vh;
+        }
+        .search-modal.active { display: flex; }
+        .search-container {
+            background: var(--bg);
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 70vh;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .search-container input {
+            width: 100%;
+            padding: 1.25rem;
+            font-size: 1.1rem;
+            border: none;
+            border-bottom: 1px solid var(--secondary);
+            background: transparent;
+            font-family: 'Inter', sans-serif;
+        }
+        .search-container input:focus { outline: none; }
+        .search-results {
+            max-height: calc(70vh - 60px);
+            overflow-y: auto;
+            padding: 0.5rem;
+        }
+        .search-result {
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .search-result:hover { background: rgba(0,0,0,0.05); }
+        .search-result-title {
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+        .search-result-excerpt {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .search-result-excerpt mark {
+            background: rgba(230, 82, 74, 0.2);
+            color: var(--accent);
+        }
+        .search-empty {
+            padding: 2rem;
+            text-align: center;
+            color: #888;
+        }
+        .search-hint {
+            padding: 0.75rem 1rem;
+            font-size: 0.8rem;
+            color: #888;
+            border-top: 1px solid var(--secondary);
+            text-align: center;
+        }
+        .search-hint kbd {
+            background: #eee;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-family: inherit;
+        }
     </style>
 </head>
 <body>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="search-modal">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search..." autocomplete="off">
+            <div class="search-results" id="search-results">
+                <div class="search-empty">Type to search...</div>
+            </div>
+            <div class="search-hint">Press <kbd>ESC</kbd> to close</div>
+        </div>
+    </div>
 
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
@@ -372,11 +458,16 @@
                 <li><a href="#press">Press</a></li>
                 <li><a href="https://flight-notes.ghost.io" target="_blank">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><button id="search-btn" aria-label="Search" style="background:none;border:none;cursor:pointer;padding:0;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </button></li>
             </ul>
         </nav>
     </header>
 
-    <main class="content-layer">
+    <main class="content-layer" data-pagefind-body>
 
         <div class="hero-statement">
             Builder of <span>AI-driven</span><br>
@@ -495,7 +586,7 @@
 
     </main>
 
-    <div class="marquee-container">
+    <div class="marquee-container" data-pagefind-ignore>
         <div class="marquee-content">
             <span class="marquee-item">AI Transformation</span>
             <span class="marquee-item">Blockchain Architecture</span>
@@ -528,6 +619,95 @@
             item.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
             item.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
         });
+    </script>
+
+    <!-- Pagefind Search -->
+    <script>
+        (function() {
+            const searchBtn = document.getElementById('search-btn');
+            const searchModal = document.getElementById('search-modal');
+            const searchInput = document.getElementById('search-input');
+            const searchResults = document.getElementById('search-results');
+            let pagefind = null;
+
+            // Load Pagefind on first search open
+            async function loadPagefind() {
+                if (pagefind) return pagefind;
+                try {
+                    pagefind = await import('/pagefind/pagefind.js');
+                    await pagefind.init();
+                    return pagefind;
+                } catch (e) {
+                    console.warn('Pagefind not available:', e);
+                    return null;
+                }
+            }
+
+            // Open search modal
+            function openSearch() {
+                searchModal.classList.add('active');
+                searchInput.focus();
+                loadPagefind();
+            }
+
+            // Close search modal
+            function closeSearch() {
+                searchModal.classList.remove('active');
+                searchInput.value = '';
+                searchResults.innerHTML = '<div class="search-empty">Type to search...</div>';
+            }
+
+            // Perform search
+            async function doSearch(query) {
+                if (!query.trim()) {
+                    searchResults.innerHTML = '<div class="search-empty">Type to search...</div>';
+                    return;
+                }
+
+                const pf = await loadPagefind();
+                if (!pf) {
+                    searchResults.innerHTML = '<div class="search-empty">Search not available</div>';
+                    return;
+                }
+
+                const search = await pf.search(query);
+                if (search.results.length === 0) {
+                    searchResults.innerHTML = '<div class="search-empty">No results found</div>';
+                    return;
+                }
+
+                const results = await Promise.all(search.results.slice(0, 5).map(r => r.data()));
+                searchResults.innerHTML = results.map(r => `
+                    <a href="${r.url}" class="search-result">
+                        <div class="search-result-title">${r.meta.title || 'Untitled'}</div>
+                        <div class="search-result-excerpt">${r.excerpt}</div>
+                    </a>
+                `).join('');
+            }
+
+            // Event listeners
+            searchBtn.addEventListener('click', openSearch);
+
+            searchModal.addEventListener('click', (e) => {
+                if (e.target === searchModal) closeSearch();
+            });
+
+            searchInput.addEventListener('input', (e) => {
+                doSearch(e.target.value);
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeSearch();
+                if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                    e.preventDefault();
+                    if (searchModal.classList.contains('active')) {
+                        closeSearch();
+                    } else {
+                        openSearch();
+                    }
+                }
+            });
+        })();
     </script>
 
     <!-- Umami Analytics (privacy-respecting, no cookies) -->

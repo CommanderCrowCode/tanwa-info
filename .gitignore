@@ -97,6 +97,10 @@ token.json
 credentials/
 
 # NPM Packages
+node_modules/
+
+# Pagefind (generated at build time)
+pagefind/
 
 # Swap files
 ~*.*

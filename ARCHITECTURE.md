@@ -395,11 +395,51 @@ Content Security Policy updated in `render.yaml` for external services:
 
 ---
 
+## Search Functionality (Pagefind)
+
+The site uses [Pagefind](https://pagefind.app/) for client-side search - a lightweight, WebAssembly-powered search that runs entirely in the browser.
+
+### How It Works
+
+1. **Build time**: Pagefind indexes all HTML pages with `data-pagefind-body` attribute
+2. **Runtime**: Search UI loads Pagefind JS lazily on first search interaction
+3. **Fragments**: Results load incrementally (5-8KB per result) vs full index download
+
+### Implementation
+
+**Index Markers:**
+- `data-pagefind-body` on main content sections (index.html, articles)
+- `data-pagefind-ignore` on non-searchable content (marquee, footer)
+
+**Build Command:**
+```bash
+npx pagefind --site . --output-path pagefind
+```
+
+**CSP Requirement:**
+Pagefind uses WebAssembly, requiring `wasm-unsafe-eval` in Content-Security-Policy.
+
+### Search UI
+
+- Triggered by search icon in header or `Cmd/Ctrl+K` keyboard shortcut
+- Modal overlay with instant search results
+- Shows title and excerpt with highlighted matches
+
+### Files
+
+| Path | Purpose |
+|------|---------|
+| `/pagefind/` | Generated search index (gitignored) |
+| `pagefind.js` | Main search library |
+| `wasm.*.pagefind` | WebAssembly search engine |
+| `fragment/` | Content fragments for results |
+
+---
+
 ## Future Considerations
 
-1. **Search Functionality**: Static search (Lunr.js/Pagefind)
-2. **Article CMS**: Consider headless CMS for content management
-3. **Image Optimization**: Implement responsive images with srcset
+1. **Article CMS**: Consider headless CMS for content management
+2. **Image Optimization**: Implement responsive images with srcset
 
 ---
 
