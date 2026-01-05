@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector | AI Fitness & HYROX Performance</title>
+    <meta name="description" content="Vector - AI-powered fitness platform for HYROX performance. Data-driven training optimization for hybrid fitness athletes." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+    <link rel="manifest" href="../manifest.json" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Vector - AI Fitness & HYROX Performance" />
+    <meta property="og:description" content="AI-powered fitness platform for HYROX performance optimization." />
+    <meta property="og:url" content="https://tanwa.info/ventures/vector.html" />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #FAF9F7;
+            --text: #2E2E2E;
+            --accent: #E6524A;
+            --accent-hover: #F77B72;
+            --secondary: #D7D7CF;
+            --gold: #E9A74B;
+            --gutter: 2rem;
+            --transition: cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(250, 249, 247, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .logo {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            font-size: 1.25rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .logo span { color: var(--accent); }
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        nav a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--accent); }
+
+        /* Content */
+        .content-layer {
+            position: relative;
+            z-index: 10;
+            padding-top: 15vh;
+            padding-bottom: 10vh;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0 var(--gutter);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            color: #888;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--accent); }
+
+        .venture-header {
+            padding: 0 var(--gutter);
+            margin-bottom: 4rem;
+        }
+
+        .venture-title {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .venture-tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            color: #666;
+            max-width: 600px;
+        }
+
+        /* Metrics */
+        .metrics-bar {
+            display: flex;
+            gap: 3rem;
+            padding: 2rem var(--gutter);
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+        .metric {
+            text-align: left;
+        }
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        .metric-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #888;
+        }
+
+        /* Section */
+        .section-header {
+            padding: 4rem var(--gutter) 1.5rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .section-content {
+            padding: 0 var(--gutter);
+            max-width: 800px;
+        }
+
+        .section-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content ul {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .section-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Feature List */
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+        }
+        .feature-item {
+            padding: 1.5rem var(--gutter);
+            border-top: 1px solid rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .feature-item:last-child { border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        .feature-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            padding: 6rem var(--gutter) 4rem;
+            text-align: center;
+        }
+        .btn-large {
+            display: inline-block;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--bg);
+            background: var(--accent);
+            padding: 1.25rem 3rem;
+            border-radius: 100px;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+        }
+        .btn-large:hover {
+            transform: scale(1.05);
+            background: var(--accent-hover);
+        }
+
+        .footer-info {
+            margin-top: 2rem;
+            font-family: 'Inter', sans-serif;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header { padding: 1rem; }
+            nav ul { gap: 1rem; }
+            nav a { font-size: 0.7rem; }
+            .venture-title { font-size: 2.5rem; }
+            .metrics-bar { gap: 2rem; }
+            .metric-value { font-size: 1.5rem; }
+            .feature-item { flex-direction: column; align-items: flex-start; gap: 0.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/" class="logo">Tanwa<span>.</span></a>
+        <nav>
+            <ul>
+                <li><a href="/#ventures">Ventures</a></li>
+                <li><a href="/#speaking">Speaking</a></li>
+                <li><a href="/#research">Research</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-layer" data-pagefind-body>
+
+        <a href="/#ventures" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Ventures
+        </a>
+
+        <div class="venture-header">
+            <h1 class="venture-title">Vector</h1>
+            <p class="venture-tagline">AI-powered fitness platform for HYROX performance. Data-driven training optimization for hybrid fitness athletes.</p>
+        </div>
+
+        <div class="metrics-bar">
+            <div class="metric">
+                <div class="metric-value">HYROX</div>
+                <div class="metric-label">Specialized</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">AI-Optimized</div>
+                <div class="metric-label">Training Plans</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">Performance</div>
+                <div class="metric-label">Analytics</div>
+            </div>
+        </div>
+
+        <div class="section-header">Overview</div>
+        <div class="section-content">
+            <p>
+                Vector is building the future of hybrid fitness training. Focused on HYROX and functional fitness, we use AI to create personalized training programs that optimize both running endurance and functional workout performance.
+            </p>
+            <p>
+                HYROX combines 8km of running with 8 functional workout stations. Training for this unique format requires balancing multiple energy systems, strength modalities, and movement patterns. Vector's AI understands these complex interactions.
+            </p>
+        </div>
+
+        <div class="section-header">Platform Features</div>
+        <div class="feature-list">
+            <div class="feature-item">
+                <span class="feature-title">Personalized Training Plans</span>
+                <span class="feature-desc">AI-generated programs for your fitness level</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">Performance Tracking</span>
+                <span class="feature-desc">Monitor progress across all 8 stations</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">Race Simulation</span>
+                <span class="feature-desc">Virtual pacing and strategy training</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">Recovery Optimization</span>
+                <span class="feature-desc">AI-driven rest and recovery planning</span>
+            </div>
+        </div>
+
+        <div class="section-header">HYROX Stations</div>
+        <div class="section-content">
+            <ul>
+                <li>SkiErg - 1000m</li>
+                <li>Sled Push - 50m</li>
+                <li>Sled Pull - 50m</li>
+                <li>Burpee Broad Jumps - 80m</li>
+                <li>Rowing - 1000m</li>
+                <li>Farmers Carry - 200m</li>
+                <li>Sandbag Lunges - 100m</li>
+                <li>Wall Balls - 100 reps</li>
+            </ul>
+        </div>
+
+        <div class="section-header">Technology</div>
+        <div class="feature-list">
+            <div class="feature-item">
+                <span class="feature-title">Machine Learning</span>
+                <span class="feature-desc">Training load and adaptation modeling</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">Wearable Integration</span>
+                <span class="feature-desc">Sync with Garmin, Apple Watch, Whoop</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">Video Analysis</span>
+                <span class="feature-desc">Movement quality assessment</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">Community Features</span>
+                <span class="feature-desc">Training groups and competitions</span>
+            </div>
+        </div>
+
+        <div class="footer-cta">
+            <a href="/#contact" class="btn-large">Join Waitlist</a>
+            <p class="footer-info">Early access and beta testing</p>
+        </div>
+
+    </main>
+
+    <!-- Umami Analytics -->
+    <script
+        defer
+        src="https://analytics.lumicello.com/script.js"
+        data-website-id="31a60b26-0f0a-4c7b-a871-ff8db375f6d2"
+    ></script>
+</body>
+</html>

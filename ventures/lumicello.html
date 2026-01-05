@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumicello | AI Learning Platform</title>
+    <meta name="description" content="Lumicello - AI-powered personalized learning platform. Adaptive education technology that meets learners where they are." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+    <link rel="manifest" href="../manifest.json" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Lumicello - AI Learning Platform" />
+    <meta property="og:description" content="AI-powered personalized learning platform for adaptive education." />
+    <meta property="og:url" content="https://tanwa.info/ventures/lumicello.html" />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #FAF9F7;
+            --text: #2E2E2E;
+            --accent: #E6524A;
+            --accent-hover: #F77B72;
+            --secondary: #D7D7CF;
+            --gold: #E9A74B;
+            --gutter: 2rem;
+            --transition: cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(250, 249, 247, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .logo {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            font-size: 1.25rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .logo span { color: var(--accent); }
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        nav a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--accent); }
+
+        /* Content */
+        .content-layer {
+            position: relative;
+            z-index: 10;
+            padding-top: 15vh;
+            padding-bottom: 10vh;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0 var(--gutter);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            color: #888;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--accent); }
+
+        .venture-header {
+            padding: 0 var(--gutter);
+            margin-bottom: 4rem;
+        }
+
+        .venture-title {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .venture-tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            color: #666;
+            max-width: 600px;
+        }
+
+        /* Metrics */
+        .metrics-bar {
+            display: flex;
+            gap: 3rem;
+            padding: 2rem var(--gutter);
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+        .metric {
+            text-align: left;
+        }
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        .metric-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #888;
+        }
+
+        /* Section */
+        .section-header {
+            padding: 4rem var(--gutter) 1.5rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .section-content {
+            padding: 0 var(--gutter);
+            max-width: 800px;
+        }
+
+        .section-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content ul {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .section-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Feature List */
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+        }
+        .feature-item {
+            padding: 1.5rem var(--gutter);
+            border-top: 1px solid rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .feature-item:last-child { border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        .feature-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            padding: 6rem var(--gutter) 4rem;
+            text-align: center;
+        }
+        .btn-large {
+            display: inline-block;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--bg);
+            background: var(--accent);
+            padding: 1.25rem 3rem;
+            border-radius: 100px;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+        }
+        .btn-large:hover {
+            transform: scale(1.05);
+            background: var(--accent-hover);
+        }
+
+        .footer-info {
+            margin-top: 2rem;
+            font-family: 'Inter', sans-serif;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header { padding: 1rem; }
+            nav ul { gap: 1rem; }
+            nav a { font-size: 0.7rem; }
+            .venture-title { font-size: 2.5rem; }
+            .metrics-bar { gap: 2rem; }
+            .metric-value { font-size: 1.5rem; }
+            .feature-item { flex-direction: column; align-items: flex-start; gap: 0.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/" class="logo">Tanwa<span>.</span></a>
+        <nav>
+            <ul>
+                <li><a href="/#ventures">Ventures</a></li>
+                <li><a href="/#speaking">Speaking</a></li>
+                <li><a href="/#research">Research</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-layer" data-pagefind-body>
+
+        <a href="/#ventures" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Ventures
+        </a>
+
+        <div class="venture-header">
+            <h1 class="venture-title">Lumicello</h1>
+            <p class="venture-tagline">AI-powered personalized learning platform. Adaptive education that meets learners where they are.</p>
+        </div>
+
+        <div class="metrics-bar">
+            <div class="metric">
+                <div class="metric-value">Personalized</div>
+                <div class="metric-label">Learning Paths</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">AI-Driven</div>
+                <div class="metric-label">Adaptation</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">Real-Time</div>
+                <div class="metric-label">Progress Tracking</div>
+            </div>
+        </div>
+
+        <div class="section-header">Overview</div>
+        <div class="section-content">
+            <p>
+                Lumicello is building the future of personalized education. Our AI-powered platform adapts to each learner's pace, style, and goals, creating truly individualized learning experiences.
+            </p>
+            <p>
+                Traditional education follows a one-size-fits-all model. Lumicello breaks this paradigm by using advanced machine learning to understand how each person learns best and dynamically adjusting content, difficulty, and approach in real-time.
+            </p>
+        </div>
+
+        <div class="section-header">Core Features</div>
+        <div class="feature-list">
+            <div class="feature-item">
+                <span class="feature-title">Adaptive Learning Engine</span>
+                <span class="feature-desc">AI that understands your learning style</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">Personalized Curriculum</span>
+                <span class="feature-desc">Content tailored to your goals</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">Progress Analytics</span>
+                <span class="feature-desc">Real-time insights on learning outcomes</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">Spaced Repetition</span>
+                <span class="feature-desc">Optimized for long-term retention</span>
+            </div>
+        </div>
+
+        <div class="section-header">Technology</div>
+        <div class="section-content">
+            <ul>
+                <li>Machine learning for learner modeling</li>
+                <li>Natural language processing for content understanding</li>
+                <li>Knowledge graph for curriculum mapping</li>
+                <li>Reinforcement learning for optimal path selection</li>
+                <li>Analytics dashboard for educators and learners</li>
+            </ul>
+        </div>
+
+        <div class="section-header">Target Domains</div>
+        <div class="feature-list">
+            <div class="feature-item">
+                <span class="feature-title">Professional Development</span>
+                <span class="feature-desc">Upskilling for the modern workforce</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">Technical Education</span>
+                <span class="feature-desc">Programming, data science, AI/ML</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">Language Learning</span>
+                <span class="feature-desc">Adaptive language acquisition</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">Corporate Training</span>
+                <span class="feature-desc">Scalable enterprise learning</span>
+            </div>
+        </div>
+
+        <div class="footer-cta">
+            <a href="/#contact" class="btn-large">Learn More</a>
+            <p class="footer-info">Partnership and early access inquiries</p>
+        </div>
+
+    </main>
+
+    <!-- Umami Analytics -->
+    <script
+        defer
+        src="https://analytics.lumicello.com/script.js"
+        data-website-id="31a60b26-0f0a-4c7b-a871-ff8db375f6d2"
+    ></script>
+</body>
+</html>
