@@ -162,7 +162,7 @@ sass/
 
 The site includes structured data for:
 - **Person** (index.html) - Professional profile
-- **Blog** (blog.html) - Blog listing
+- **Blog** (external Ghost at flight-notes.ghost.io)
 - **Article** (individual articles) - Blog posts
 
 ### Meta Tags
@@ -222,25 +222,24 @@ All paths receive:
 **Tagline**: "Builder of AI-driven financial and human-capability systems"
 
 **Key Metrics** (displayed prominently):
-- 85.3M THB value generated through AI
-- $700M VC fund advisor
-- 5,000+ summit attendees
-- 500+ research citations
+- ฿85.3M Value Generated
+- $700M VC Fund Advised
+- 400+ Citations
+- 5,000+ Summit Attendees
 
 ### Ventures Portfolio
 
-1. **Two Flamingos Capital** - Algorithmic trading
-2. **Flamingo 492** - Advisory & real estate
-3. **Lumicello** - AI-powered learning
-4. **Vector** - AI fitness systems
+1. **Two Flamingos** - Algorithmic Trading • Delta-Neutral
+2. **Flamingo 492** - Advisory • Corporate Training
+3. **Lumicello** - AI Learning • Personalization
 
 ### Content Types
 
 | Type | Location | Status |
 |------|----------|--------|
-| Homepage | index.html | Complete |
+| Homepage | index.html | Active |
 | Blog | External (flight-notes.ghost.io) | Active |
-| Featured Article | articles/ai-transformation-scb10x.html | Complete |
+| Case Study | articles/ai-transformation-scb10x.html | Complete |
 
 ---
 
@@ -298,15 +297,15 @@ All paths receive:
 ### Adding New Articles
 
 1. Create HTML file in `articles/`
-2. Add entry to `blog.html` grid
-3. Update `sitemap.xml`
-4. Commit and push (Render auto-deploys)
+2. Update `sitemap.xml`
+3. Commit and push (Render auto-deploys)
+
+**Note**: Blog posts are managed externally via Ghost (flight-notes.ghost.io). Articles in this repo are standalone case studies.
 
 ### Updating Metrics
 
-Key metrics appear in multiple locations:
-- `index.html` lines 156-170 (Impact section)
-- `blog.html` line 174, 318 (credentials)
+Key metrics appear in:
+- `index.html` metrics-bar section (lines ~431-448)
 - Meta descriptions in `<head>`
 
 ### Modifying Styles
