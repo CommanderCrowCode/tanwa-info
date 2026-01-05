@@ -3,10 +3,9 @@ Based on your positioning strategy and current HTML implementation, I'll create 
 # TANWA.INFO DESIGN BIBLE
 *The definitive guide for maintaining design consistency and professional authority*
 
-> **Note (Jan 2026):** The site has evolved to use a light coral theme (`#E6524A` accent on
-> `#FAF9F7` background) instead of the dark purple theme documented below. Core principles
-> (authority-first, results-focused) remain valid. Color section should be updated in a
-> future design refresh.
+> **Updated (Jan 2026):** The site uses a light coral theme (`#E6524A` accent on `#FAF9F7`
+> background). Typography is Manrope (headings/body) with Inter (secondary). Core principles
+> (authority-first, results-focused) remain the foundation of all design decisions.
 
 ## 1. BRAND POSITIONING STATEMENT
 **"From Research to Revenue. From Theory to Transformation."**
@@ -27,39 +26,38 @@ You are the bridge between cutting-edge research and real-world implementation. 
 
 ## 3. COLOR SYSTEM
 
-### Primary Palette
+### Primary Palette (Current - Light Coral Theme)
 ```css
 :root {
   /* Core Brand Colors */
-  --quantum-purple: #8a2be2;     /* Primary accent - innovation/tech */
-  --midnight-depth: #0a0e27;     /* Background - expertise depth */
-  --trust-navy: #1a237e;         /* Secondary - institutional trust */
-  
-  /* Functional Colors */
-  --success-green: #00c853;      /* Metrics, achievements */
-  --caution-amber: #ff6f00;      /* Important notices */
-  --neutral-silver: #b0bec5;     /* Body text */
-  --pure-white: #ffffff;         /* Headlines, CTAs */
-  
-  /* Gradient Overlays */
-  --authority-gradient: linear-gradient(135deg, rgba(138,43,226,0.1) 0%, rgba(26,35,126,0.1) 100%);
-  --tech-glow: 0 0 30px rgba(138,43,226,0.3);
+  --bg: #FAF9F7;                 /* Warm off-white background */
+  --text: #2E2E2E;               /* Dark charcoal for text */
+  --accent: #E6524A;             /* Coral accent - CTAs, highlights */
+  --accent-hover: #F77B72;       /* Lighter coral for hover states */
+
+  /* Supporting Colors */
+  --secondary: #D7D7CF;          /* Muted gray for borders */
+  --gold: #E9A74B;               /* Gold for special accents */
+
+  /* Cursor Interaction */
+  --cursor-hover-bg: rgba(230, 82, 74, 0.1);  /* Subtle coral tint */
 }
 ```
 
 ### Usage Rules
-- Purple (`#8a2be2`) for primary CTAs and achievement highlights
-- Dark backgrounds to convey depth of expertise
-- Green for ROI/metrics/success indicators
-- Avoid bright/playful colors that diminish authority
+- Coral (`#E6524A`) for primary CTAs, metric values, and section headers
+- Light background (`#FAF9F7`) for clean, professional appearance
+- Dark text (`#2E2E2E`) for readability
+- Hover states use lighter coral or background tints
+- Avoid dark/purple themes - site has evolved to minimal light aesthetic
 
 ## 4. TYPOGRAPHY SYSTEM
 
 ### Font Stack
 ```css
---font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;  /* Clean, modern */
---font-headings: 'Poppins', 'Inter', sans-serif;  /* Slightly more personality */
---font-mono: 'JetBrains Mono', 'Courier New', monospace;  /* Technical credibility */
+--font-primary: 'Manrope', sans-serif;           /* Body and headings - clean, modern */
+--font-secondary: 'Inter', sans-serif;           /* Nav, labels, captions */
+--font-mono: 'JetBrains Mono', monospace;        /* Code blocks (if needed) */
 ```
 
 ### Type Scale
