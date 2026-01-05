@@ -6,7 +6,7 @@ Static HTML portfolio site for Asst. Prof. Tanwa Arpornthip, Ph.D.
 
 ```bash
 # Local development
-uv run python -m http.server 8999
+python -m http.server 8999
 
 # Access at http://localhost:8999
 ```
@@ -15,17 +15,18 @@ uv run python -m http.server 8999
 
 - **Domain**: https://tanwa.info
 - **Hosting**: Render.com (static site)
-- **Base Template**: HTML5 UP (heavily customized)
+- **Design**: Custom minimal design (evolved from HTML5 UP template)
 - **Dev Port**: 8999
 
 ## Key Files
 
 | File | Purpose |
 |------|---------|
-| `index.html` | Homepage - identity, expertise, ventures |
+| `index.html` | Homepage - hero, metrics, ventures, roles, contact |
 | `404.html` | Custom error page |
 | `ARCHITECTURE.md` | Detailed site structure documentation |
-| `checklist.md` | Design specifications and guidelines |
+| `checklist.md` | Design specifications and guidelines (source of truth) |
+| `BLACKLIST.md` | Content/design items to avoid |
 | `render.yaml` | Render.com deployment config |
 
 ## Directory Structure
@@ -33,25 +34,34 @@ uv run python -m http.server 8999
 ```
 ├── index.html              # Main page
 ├── 404.html                # Error page
-├── articles/               # Blog articles (if created)
+├── articles/               # Case studies
+│   └── ai-transformation-scb10x.html
 ├── assets/
-│   ├── css/main.css        # Compiled styles
+│   ├── css/main.css        # Compiled styles (legacy)
 │   ├── js/                 # JavaScript
-│   └── sass/               # SASS sources
-├── images/                 # Site images
-└── specs/                  # Design specs
+│   ├── sass/               # SASS sources
+│   └── webfonts/           # Font Awesome icons
+├── images/
+│   └── og-image.jpg        # Open Graph social image
+├── research/               # Content research and sources
+├── specs/                  # Design specifications
+├── robots.txt              # Crawler directives
+└── sitemap.xml             # SEO sitemap
 ```
 
 ## Design System
 
-**Color Palette**:
-- Coral accent: `#f56a6a`
-- Light background: `#ffffff`
-- Dark text: `#333333`
+**Color Palette** (inline CSS in index.html):
+- Background: `#FAF9F7` (warm off-white)
+- Text: `#2E2E2E` (dark charcoal)
+- Accent: `#E6524A` (coral)
+- Accent hover: `#F77B72`
+- Secondary: `#D7D7CF` (muted gray)
+- Gold: `#E9A74B` (special accents)
 
 **Fonts**:
-- Body: Inter
-- Headings: Poppins
+- Primary: Manrope (500, 700, 800)
+- Secondary: Inter (400, 500)
 
 ## Making Changes
 
@@ -61,16 +71,16 @@ uv run python -m http.server 8999
 3. Commit and push (Render auto-deploys)
 
 ### Modifying Styles
-1. Edit SASS in `assets/sass/`
-2. Compile to `assets/css/main.css`
-3. Test before deploying
+Current design uses inline CSS in index.html. Legacy SASS files exist in `assets/sass/` but the site has evolved to custom inline styles.
 
 ### Key Sections in index.html
-- Hero (`.intro`)
-- Impact Numbers (`#impact`)
-- Core Expertise (`#expertise`)
+- Hero statement (title + tagline)
+- Metrics bar (value generated, VC fund, citations, attendees)
 - Ventures (`#ventures`)
-- Contact (`#contact`)
+- Roles (`#speaking`)
+- Speaking Engagements (`#engagements`)
+- Contact form (Formspree)
+- Newsletter (Ghost embed)
 
 ## Deployment
 
@@ -78,8 +88,11 @@ Push to `main` triggers automatic Render deployment. PR previews are enabled.
 
 ## External Services
 
-- **Blog**: Linked to external Ghost blog at flight-notes.ghost.io
-- **Contact**: mailto: links (no form backend)
+| Service | Purpose | Details |
+|---------|---------|---------|
+| Formspree | Contact form | form ID: `mgovrvqp` |
+| Ghost | Blog/Newsletter | flight-notes.ghost.io |
+| Umami | Analytics | analytics.lumicello.com |
 
 ## Reference Docs
 
