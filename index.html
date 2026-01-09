@@ -180,8 +180,35 @@
             font-family: 'Inter', sans-serif;
             font-size: 1.1rem;
             color: #666;
-            margin-bottom: 10vh;
+            margin-bottom: 6vh;
             max-width: 600px;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 0 var(--gutter);
+            max-width: 900px;
+            margin-bottom: 10vh;
+        }
+        .about-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: #4A4A4A;
+            margin-bottom: 1.5rem;
+        }
+        .about-text:last-child {
+            margin-bottom: 0;
+        }
+        .inline-link {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+            transition: all 0.2s var(--transition);
+        }
+        .inline-link:hover {
+            color: var(--accent-hover);
+            border-bottom-color: var(--accent-hover);
         }
 
         /* Metrics Bar */
@@ -427,6 +454,25 @@
         <p class="hero-sub">
             UVA Physics PhD turned VC tech advisor. Senior Technical Advisor at $700M VC.
         </p>
+
+        <div class="about-section">
+            <p class="about-text">
+                I translate complexity into clarity. From measuring vacuum pressure at 10⁻¹¹ torr in atomic physics labs,
+                to evaluating blockchain consensus mechanisms for a $700M VC fund, I've always worked at the edge of what's
+                technically possible and what's commercially viable.
+            </p>
+            <p class="about-text">
+                Now I build and advise tiny, AI-augmented teams that punch above their weight. Not because small is romantic,
+                but because the right leverage—sharp tools, clear thinking, automated workflows—can make a two-person team
+                operate like twenty. That's the bet behind <a href="https://flight-notes.ghost.io" target="_blank" class="inline-link">Flight Notes</a>,
+                my newsletter on practical small-team operations.
+            </p>
+            <p class="about-text">
+                Whether it's technical due diligence for venture investments, speaking on emerging tech, or building systems
+                that actually ship—I bridge the lab and the deal table. Because the best innovations happen when you understand
+                both the science and the business.
+            </p>
+        </div>
 
         <div class="metrics-bar">
             <div class="metric">
