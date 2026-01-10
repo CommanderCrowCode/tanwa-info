@@ -14,26 +14,11 @@ services:
     #   - tanwa.info
     #   - www.tanwa.info
 
-    # Security Headers
+    # Security Headers - Optimized for A+ Rating on securityheaders.com
     headers:
       - path: /*
-        name: X-Frame-Options
-        value: SAMEORIGIN
-      - path: /*
-        name: X-Content-Type-Options
-        value: nosniff
-      - path: /*
-        name: X-XSS-Protection
-        value: "1; mode=block"
-      - path: /*
-        name: Referrer-Policy
-        value: strict-origin-when-cross-origin
-      - path: /*
-        name: Permissions-Policy
-        value: camera=(), microphone=(), geolocation=()
-      - path: /*
         name: Strict-Transport-Security
-        value: max-age=31536000; includeSubDomains; preload
+        value: max-age=63072000; includeSubDomains; preload
       - path: /*
         name: Content-Security-Policy
         value: >-
@@ -43,7 +28,26 @@ services:
           img-src 'self' data: https:;
           font-src 'self' data: https://fonts.gstatic.com;
           connect-src 'self' https://analytics.lumicello.com https://formspree.io https://flight-notes.ghost.io;
+          frame-src 'none';
           frame-ancestors 'self';
+          object-src 'none';
           base-uri 'self';
-          form-action 'self' https://formspree.io
+          form-action 'self' https://formspree.io;
+          manifest-src 'self';
+          media-src 'none';
+          worker-src 'none';
+          child-src 'none';
+          upgrade-insecure-requests
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: Permissions-Policy
+        value: camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), ambient-light-sensor=()
 
