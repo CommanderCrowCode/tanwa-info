@@ -47,12 +47,3 @@ services:
           base-uri 'self';
           form-action 'self' https://formspree.io
 
-    # Caching for static assets
-    routes:
-      - type: rewrite
-        source: /assets/**
-        destination: /assets/**
-      - type: rewrite
-        source: /images/**
-        destination: /images/**
-
