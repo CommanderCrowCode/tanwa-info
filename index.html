@@ -479,6 +479,18 @@
             .contact-form button { align-self: center; }
             .footer-section-title { margin-bottom: 1rem; }
         }
+
+        /* Accessibility: Screen reader only content */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
     </style>
 </head>
 <body>
@@ -500,9 +512,9 @@
 
     <main class="content-layer">
 
-        <div class="hero-statement">
+        <h1 class="hero-statement">
             Tanwa Arpornthip <span>(ธันวา อาภรณ์ทิพย์)</span>
-        </div>
+        </h1>
 
         <p class="hero-sub">
             Builder of AI-driven financial and human-capability systems. UVA Physics PhD turned VC tech advisor. Senior Technical Advisor at $700M VC.
@@ -546,45 +558,45 @@
             </div>
         </div>
 
-        <div class="section-header" id="ventures">Ventures</div>
+        <h2 class="section-header" id="ventures">Ventures</h2>
 
         <div class="venture-list">
             <a href="https://twoflamingos.capital" target="_blank" class="venture-item">
-                <span class="venture-title">Two Flamingos</span>
+                <h3 class="venture-title">Two Flamingos</h3>
                 <span class="venture-meta">Algorithmic Trading • Delta-Neutral</span>
             </a>
             <a href="#" class="venture-item">
-                <span class="venture-title">Flamingo 492</span>
+                <h3 class="venture-title">Flamingo 492</h3>
                 <span class="venture-meta">Advisory • Corporate Training</span>
             </a>
             <a href="https://lumicello.com" target="_blank" class="venture-item">
-                <span class="venture-title">Lumicello</span>
+                <h3 class="venture-title">Lumicello</h3>
                 <span class="venture-meta">AI Learning • Personalization</span>
             </a>
         </div>
 
-        <div class="section-header" id="speaking">Roles</div>
+        <h2 class="section-header" id="speaking">Roles</h2>
 
         <div class="venture-list">
             <div class="venture-item">
-                <span class="venture-title">SCB 10X</span>
+                <h3 class="venture-title">SCB 10X</h3>
                 <span class="venture-meta">Senior Technical Advisor • Deep Tech Due Diligence</span>
             </div>
             <div class="venture-item">
-                <span class="venture-title">PSU Phuket</span>
+                <h3 class="venture-title">PSU Phuket</h3>
                 <span class="venture-meta">Researcher & Lecturer • BLOCK Research Team</span>
             </div>
         </div>
 
-        <div class="section-header" id="engagements">Speaking Engagements</div>
+        <h2 class="section-header" id="engagements">Speaking Engagements</h2>
 
         <div class="venture-list">
             <div class="venture-item">
-                <span class="venture-title">REDeFiNE TOMORROW 2023</span>
+                <h3 class="venture-title">REDeFiNE TOMORROW 2023</h3>
                 <span class="venture-meta">Panel Moderator • Modular Blockchains with Celestia CEO</span>
             </div>
             <div class="venture-item">
-                <span class="venture-title">Thailand Blockchain Week</span>
+                <h3 class="venture-title">Thailand Blockchain Week</h3>
                 <span class="venture-meta">Panel Moderator • Technical Deep Dives</span>
             </div>
         </div>
