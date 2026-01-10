@@ -56,5 +56,3 @@ services:
         source: /images/**
         destination: /images/**
 
-    # Custom 404 page
-    notFoundRoute: /404.html
