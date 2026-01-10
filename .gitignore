@@ -81,8 +81,9 @@ Icon
 .Trashes
 
 # Claude Code
-.claude/
+.claude/*
 !.claude/agents/
+!.claude/skills/
 *.claude.tmp
 .claude-cache/
 .qa-reports/

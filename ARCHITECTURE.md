@@ -16,14 +16,13 @@ tanwa.info is a static HTML portfolio site designed to position Tanwa as a thoug
 
 ```
 tanwa.info/
-├── index.html              # Homepage - identity and expertise
-├── blog.html               # Blog listing page
+├── index.html              # Homepage - identity, ventures, contact
 ├── 404.html                # Custom error page
 ├── articles/               # Individual article pages
 │   └── ai-transformation-scb10x.html
 ├── assets/
 │   ├── css/
-│   │   ├── main.css        # Compiled stylesheet
+│   │   ├── main.css        # Legacy stylesheet (template)
 │   │   └── fontawesome-all.min.css
 │   ├── js/
 │   │   ├── jquery.min.js   # jQuery 3.x
@@ -31,27 +30,23 @@ tanwa.info/
 │   │   ├── browser.min.js  # Browser detection
 │   │   ├── breakpoints.min.js  # Responsive breakpoints
 │   │   ├── util.js         # Utility functions
-│   │   └── main.js         # Site interactions
-│   ├── sass/               # SASS source files
-│   │   ├── main.scss       # Main entry point
-│   │   ├── base/           # Reset, typography
-│   │   ├── components/     # Buttons, forms, etc.
-│   │   ├── layout/         # Page layouts
-│   │   └── libs/           # Third-party SASS
+│   │   └── main.js         # Site interactions (cursor, animations)
 │   └── webfonts/           # Font Awesome icons
 ├── images/
-│   ├── gallery/            # Gallery images
-│   ├── pic01.jpg, pic02.jpg
-│   ├── first.png, second.png
+│   └── og-image.jpg        # Open Graph social sharing image
 ├── specs/
 │   └── personal_specs.md   # Design specifications
 ├── favicon.svg             # Vector favicon
 ├── manifest.json           # PWA manifest
-├── robots.txt              # Search crawler rules
-├── sitemap.xml             # SEO sitemap
 ├── render.yaml             # Deployment configuration
-└── checklist.md            # Design bible
+├── checklist.md            # Design bible
+├── ARCHITECTURE.md         # This file
+├── CLAUDE.md               # Claude Code project instructions
+├── IMAGE_OPTIMIZATION.md   # Image optimization guidelines
+└── README.md               # Quick start guide
 ```
+
+**Note**: The site has evolved from the original HTML5 UP template to a custom minimal design with inline CSS in index.html.
 
 ---
 
@@ -59,73 +54,59 @@ tanwa.info/
 
 ### Homepage (index.html)
 
-The homepage follows a single-page application pattern with section-based navigation:
+The homepage follows a minimal single-page design with section-based navigation:
 
-| Section | ID | Purpose |
-|---------|-----|---------|
-| Navigation | `#main-nav` | Fixed top nav with anchor links |
-| Hero | `.intro` | Identity statement + CTAs |
-| Impact Numbers | `#impact` | Key metrics (85.3M, $700M, etc.) |
-| Core Expertise | `#expertise` | AI, Web3, Quantum capabilities |
-| Ventures | `#ventures` | Company portfolio |
-| Current Roles | `#roles` | Professional positions |
-| Speaking | `#speaking` | Recent engagements |
-| Case Studies | `#cases` | Implementation examples |
-| Services | `#services` | Consulting offerings |
-| Publications | `#publications` | Academic citations |
-| Contact | `#contact` | CTA and contact info |
-| Footer | N/A | Social links + copyright |
+| Section | Purpose |
+|---------|---------|
+| Header | Fixed nav: Tanwa. logo + VENTURES, SPEAKING, BLOG, CONTACT links |
+| Hero | Title + tagline + credentials summary |
+| Impact Numbers | Key metrics grid (฿85.3M, $700M, 400+, 5,000+) |
+| Ventures | Company portfolio (Two Flamingos, Flamingo 492, Lumicello) |
+| Speaking & Roles | Professional positions (SCB 10X, PSU Phuket, Redefine) |
+| Contact Form | Formspree-powered contact form ("GET IN TOUCH") |
+| Newsletter | Ghost-embedded signup ("FLIGHT NOTES") |
+| Footer | Social links + location |
 
 **Design Patterns**:
 - Results-first presentation (metrics before descriptions)
-- Progressive disclosure (summary → details)
-- Authority anchors (credentials always visible)
-
-### Blog (blog.html)
-
-- Compact header with credentials
-- Featured article banner
-- Article grid (3-column responsive)
-- Sidebar with topics, popular posts, newsletter
-- Article series section
-
-**Custom Styles**: Uses `blog-focus` body class for:
-- Narrower left sidebar (24vw vs default)
-- Wider content area
-- Custom article card styling
+- Minimal typography-focused design
+- Custom cursor for engagement
+- External blog link (Ghost at flight-notes.ghost.io)
 
 ### Articles (articles/*.html)
 
 Long-form content pages with:
 - Full-width reading experience
-- Author bio sidebar
-- Related articles
 - Schema.org Article markup
 
 ---
 
 ## Design System
 
-### Color Palette
+### Color Palette (Current - Minimal Design)
 
 ```css
---quantum-purple: #8a2be2;     /* Primary accent */
---midnight-depth: #0a0e27;     /* Deep backgrounds */
---trust-navy: #1a237e;         /* Secondary accent */
---success-green: #00c853;      /* Metrics, achievements */
---caution-amber: #ff6f00;      /* Warnings */
---neutral-silver: #b0bec5;     /* Body text */
---pure-white: #ffffff;         /* Headlines, CTAs */
---theme-color: #f56a6a;        /* Theme accent (from template) */
+--bg: #FAF9F7;                 /* Warm off-white background */
+--text: #2E2E2E;               /* Dark charcoal text */
+--accent: #E6524A;             /* Coral accent (CTAs, highlights) */
+--accent-hover: #F77B72;       /* Lighter coral for hover states */
+--secondary: #D7D7CF;          /* Muted gray for borders */
+--gold: #E9A74B;               /* Gold for special accents */
 ```
 
 ### Typography
 
 | Use | Font | Weight |
 |-----|------|--------|
-| Body | Inter | 300, 400, 600, 700 |
-| Headings | Poppins | 600, 700 |
-| Code | JetBrains Mono | - |
+| Body/Headings | Manrope | 500, 700, 800 |
+| Secondary | Inter | 400, 500 |
+
+### Design Features
+
+- **Custom Cursor**: Dot + outline cursor with hover effects
+- **Minimal Layout**: Clean single-column sections
+- **No Images**: Text-focused design with metrics emphasis
+- **Responsive Grid**: CSS Grid for impact metrics
 
 ### Responsive Breakpoints
 
@@ -181,7 +162,7 @@ sass/
 
 The site includes structured data for:
 - **Person** (index.html) - Professional profile
-- **Blog** (blog.html) - Blog listing
+- **Blog** (external Ghost at flight-notes.ghost.io)
 - **Article** (individual articles) - Blog posts
 
 ### Meta Tags
@@ -241,26 +222,24 @@ All paths receive:
 **Tagline**: "Builder of AI-driven financial and human-capability systems"
 
 **Key Metrics** (displayed prominently):
-- 85.3M THB value generated through AI
-- $700M VC fund advisor
-- 5,000+ summit attendees
-- 500+ research citations
+- ฿85.3M Value Generated
+- $700M VC Fund Advised
+- 400+ Citations
+- 5,000+ Summit Attendees
 
 ### Ventures Portfolio
 
-1. **Two Flamingos Capital** - Algorithmic trading
-2. **Flamingo 492** - Advisory & real estate
-3. **Lumicello** - AI-powered learning
-4. **Vector** - AI fitness systems
+1. **Two Flamingos** - Algorithmic Trading • Delta-Neutral
+2. **Flamingo 492** - Advisory • Corporate Training
+3. **Lumicello** - AI Learning • Personalization
 
 ### Content Types
 
 | Type | Location | Status |
 |------|----------|--------|
-| Homepage | index.html | Complete |
-| Blog Index | blog.html | Complete |
-| Featured Article | articles/ai-transformation-scb10x.html | Complete |
-| Placeholder Articles | Linked from blog | Not created |
+| Homepage | index.html | Active |
+| Blog | External (flight-notes.ghost.io) | Active |
+| Case Study | articles/ai-transformation-scb10x.html | Complete |
 
 ---
 
@@ -275,14 +254,17 @@ All paths receive:
 - Easy maintenance (edit HTML directly)
 - SEO-friendly (content in HTML)
 
-### 2. HTML5 UP Base Template
+### 2. Design Evolution (HTML5 UP → Custom Minimal)
 
-**Decision**: Started from HTML5 UP template, heavily customized
-**Rationale**:
-- Proven responsive design patterns
-- Cross-browser compatibility
-- Accessible foundation
-- Faster initial development
+**Original**: Started from HTML5 UP template
+**Current**: Complete redesign with custom minimal aesthetic
+
+**Evolution Rationale**:
+- Moved from dark theme to warm light background (#FAF9F7)
+- Removed images in favor of typography-focused design
+- Added custom cursor for interactive feel
+- Simplified color palette to coral accent (#E6524A)
+- External blog (Ghost) instead of built-in blog pages
 
 ### 3. Fixed Navigation
 
@@ -315,15 +297,15 @@ All paths receive:
 ### Adding New Articles
 
 1. Create HTML file in `articles/`
-2. Add entry to `blog.html` grid
-3. Update `sitemap.xml`
-4. Commit and push (Render auto-deploys)
+2. Update `sitemap.xml`
+3. Commit and push (Render auto-deploys)
+
+**Note**: Blog posts are managed externally via Ghost (flight-notes.ghost.io). Articles in this repo are standalone case studies.
 
 ### Updating Metrics
 
-Key metrics appear in multiple locations:
-- `index.html` lines 156-170 (Impact section)
-- `blog.html` line 174, 318 (credentials)
+Key metrics appear in:
+- `index.html` metrics-bar section (lines ~431-448)
 - Meta descriptions in `<head>`
 
 ### Modifying Styles
@@ -356,15 +338,68 @@ Push to `main` branch triggers automatic Render deployment. PR previews are enab
 
 ---
 
-## Future Considerations
+## External Services & Integrations
 
-1. **Newsletter Integration**: Currently placeholder form
-2. **Search Functionality**: Static search (Lunr.js/Pagefind)
-3. **Article CMS**: Consider headless CMS for content management
-4. **Analytics**: Add privacy-respecting analytics (Plausible/Fathom)
-5. **Image Optimization**: Implement responsive images with srcset
-6. **Contact Form**: Replace mailto with form submission
+### Analytics (Umami)
+
+Privacy-respecting, cookie-free analytics hosted at `analytics.lumicello.com`.
+
+```html
+<script defer src="https://analytics.lumicello.com/script.js"
+        data-website-id="31a60b26-0f0a-4c7b-a871-ff8db375f6d2"></script>
+```
+
+**Features**:
+- No cookies, GDPR compliant
+- Self-hosted instance
+- Tracks page views, referrers, devices
+
+### Newsletter (Ghost)
+
+Embedded signup form from Ghost blog at `flight-notes.ghost.io`.
+
+```html
+<script src="https://cdn.jsdelivr.net/ghost/signup-form@~0.3/umd/signup-form.min.js"
+        data-site="https://flight-notes.ghost.io/" async></script>
+```
+
+**Features**:
+- Weekly "Flight Notes" newsletter
+- Managed through Ghost dashboard
+- Automatic subscriber sync
+
+### Contact Form (Formspree)
+
+Server-side form handling via Formspree (form ID: `mgovrvqp`).
+
+```html
+<form action="https://formspree.io/f/mgovrvqp" method="POST">
+```
+
+**Features**:
+- No backend required
+- Spam filtering
+- Email notifications to site owner
+
+### CSP Configuration
+
+Content Security Policy updated in `render.yaml` for external services:
+
+| Service | Domains Allowed |
+|---------|-----------------|
+| Analytics | `analytics.lumicello.com` |
+| Newsletter | `cdn.jsdelivr.net`, `flight-notes.ghost.io` |
+| Contact Form | `formspree.io` |
+| Fonts | `fonts.googleapis.com`, `fonts.gstatic.com` |
 
 ---
 
-*Last updated: January 2026*
+## Future Considerations
+
+1. **Search Functionality**: Static search (Lunr.js/Pagefind)
+2. **Article CMS**: Consider headless CMS for content management
+3. **Image Optimization**: Implement responsive images with srcset
+
+---
+
+*Last updated: January 5, 2026*
