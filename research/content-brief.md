@@ -143,7 +143,7 @@ LinkedIn, Scholar, GitHub, Newsletter
 > "Builder of AI-driven financial and human-capability systems. Founder & investor at the intersection of markets, automation, and learning. Senior Advisor at $700M VC."
 
 ### Recommended
-> "Physics PhD turned VC Tech Advisor. Senior Technical Advisor at SCB 10X. WikiExpo 2024 Award Winner. Building AI-augmented teams that punch like institutions."
+> "Physics PhD turned Senior Advisor. Senior Technical Advisor at SCB 10X. WikiExpo 2024 Award Winner. Building AI-augmented teams that punch like institutions."
 
 ---
 

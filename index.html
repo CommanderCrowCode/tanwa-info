@@ -9,9 +9,11 @@
     <meta name="author" content="Tanwa Arpornthip" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Tanwa Arpornthip (ธันวา อาภรณ์ทิพย์) - Builder of AI-driven Financial Systems" />
@@ -511,33 +513,60 @@
             clip: rect(0,0,0,0);
             border: 0;
         }
+
+        /* Accessibility: Keyboard focus indicators */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Skip to main content link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
     </style>
 </head>
 <body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
     <header>
-        <div class="logo">Tanwa<span>.</span></div>
-        <nav>
+        <div class="logo" aria-label="Tanwa Arpornthip">Tanwa<span>.</span></div>
+        <nav aria-label="Main navigation">
             <ul>
                 <li><a href="#ventures">Ventures</a></li>
                 <li><a href="#engagements">Speaking</a></li>
-                <li><a href="https://flight-notes.ghost.io" target="_blank">Blog</a></li>
+                <li><a href="https://flight-notes.ghost.io" target="_blank" rel="noopener noreferrer" aria-label="Blog (opens in new tab)">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="content-layer">
+    <main id="main-content" class="content-layer">
 
         <h1 class="hero-statement">
             Tanwa Arpornthip <span>(ธันวา อาภรณ์ทิพย์)</span>
         </h1>
 
         <p class="hero-sub">
-            Builder of AI-driven financial and human-capability systems. UVA Physics PhD turned VC tech advisor. Senior Technical Advisor at $700M VC.
+            Builder of AI-driven financial and human-capability systems. UVA Physics PhD turned Senior Advisor. Senior Technical Advisor at $700M VC.
         </p>
 
         <div class="about-section">
@@ -626,9 +655,11 @@
                 <!-- Contact Form -->
                 <div class="footer-column">
                     <h3 class="footer-section-title">Get in Touch</h3>
-                    <form action="https://formspree.io/f/mgovrvqp" method="POST" class="contact-form">
-                        <input type="email" name="email" placeholder="Your email" required>
-                        <textarea name="message" placeholder="What's on your mind?" rows="3" required></textarea>
+                    <form action="https://formspree.io/f/mgovrvqp" method="POST" class="contact-form" aria-label="Contact form">
+                        <label for="contact-email" class="visually-hidden">Email address</label>
+                        <input type="email" id="contact-email" name="email" placeholder="Your email" required aria-required="true">
+                        <label for="contact-message" class="visually-hidden">Message</label>
+                        <textarea id="contact-message" name="message" placeholder="What's on your mind?" rows="3" required aria-required="true"></textarea>
                         <button type="submit" class="btn-large">Send Message</button>
                     </form>
                 </div>
@@ -645,13 +676,13 @@
 
             <div class="footer-divider"></div>
 
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/tanwa-arpornthip-37ba04137/">LinkedIn</a>
-                <a href="https://twitter.com/tanwaarpornthip">Twitter</a>
-                <a href="https://scholar.google.com/citations?user=xtIiVDkAAAAJ">Scholar</a>
-                <a href="https://github.com/CommanderCrowCode">GitHub</a>
-                <a href="https://flight-notes.ghost.io" target="_blank">Newsletter</a>
-            </div>
+            <nav aria-label="Social media links" class="social-links">
+                <a href="https://www.linkedin.com/in/tanwa-arpornthip-37ba04137/" aria-label="LinkedIn profile">LinkedIn</a>
+                <a href="https://twitter.com/tanwaarpornthip" aria-label="Twitter profile">Twitter</a>
+                <a href="https://scholar.google.com/citations?user=xtIiVDkAAAAJ" aria-label="Google Scholar profile">Scholar</a>
+                <a href="https://github.com/CommanderCrowCode" aria-label="GitHub profile">GitHub</a>
+                <a href="https://flight-notes.ghost.io" target="_blank" rel="noopener noreferrer" aria-label="Newsletter (opens in new tab)">Newsletter</a>
+            </nav>
 
             <p class="footer-info">Bangkok, Thailand • Available Globally</p>
         </div>

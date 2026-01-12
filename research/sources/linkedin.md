@@ -6,7 +6,7 @@
 ## Profile Summary
 
 - **Name**: Tanwa Arpornthip
-- **Headline**: "VC Tech Advisor | University Lecturer | Bridging Tech & Investment"
+- **Headline**: "Senior Advisor | University Lecturer | Bridging Tech & Investment"
 - **Location**: Bangkok, Bangkok City, Thailand
 - **Connections**: 346
 - **Followers**: 406
