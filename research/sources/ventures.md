@@ -94,7 +94,7 @@
 
 ## Content Opportunities
 
-1. **VC Tech Advisor**: Bridges academia and investment
+1. **Senior Advisor**: Bridges academia and investment
 2. **Due Diligence Expert**: Technical evaluation for investments
 3. **Blockchain Researcher**: Academic + practical DeFi knowledge
 4. **AI Focus**: Both research and investment perspective
