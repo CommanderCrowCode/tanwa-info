@@ -85,6 +85,21 @@ tanwa.info/
 | Formspree | Contact form | form ID: `mgovrvqp` |
 | Ghost | Blog/Newsletter | flight-notes.ghost.io |
 | Umami | Analytics | analytics.lumicello.com |
+| Web Vitals | Performance monitoring | Real-user metrics (LCP, INP, CLS, FCP, TTFB) → Umami |
+
+### Analytics & Performance
+
+**Umami Dashboard**: Access at `analytics.lumicello.com` to view:
+- Page views, referrers, devices
+- Custom events: `web-vitals-*` (performance metrics)
+- Custom events: `js-error`, `promise-rejection` (error tracking)
+
+**Tracked Performance Metrics**:
+- **LCP** (Largest Contentful Paint) - Loading performance
+- **INP** (Interaction to Next Paint) - Interactivity
+- **CLS** (Cumulative Layout Shift) - Visual stability
+- **FCP** (First Contentful Paint) - Initial render
+- **TTFB** (Time to First Byte) - Server response
 
 ## Deployment
 

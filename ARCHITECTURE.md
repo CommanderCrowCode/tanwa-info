@@ -354,6 +354,36 @@ Privacy-respecting, cookie-free analytics hosted at `analytics.lumicello.com`.
 - Self-hosted instance
 - Tracks page views, referrers, devices
 
+### Performance Monitoring (Web Vitals)
+
+Real-user performance monitoring using Google's Web Vitals library, with metrics sent to Umami.
+
+**Tracked Metrics**:
+- **LCP** (Largest Contentful Paint) - Main content loading performance
+- **INP** (Interaction to Next Paint) - Responsiveness to user interactions
+- **CLS** (Cumulative Layout Shift) - Visual stability
+- **FCP** (First Contentful Paint) - Initial rendering speed
+- **TTFB** (Time to First Byte) - Server response time
+
+**Error Tracking**:
+- JavaScript errors (runtime exceptions)
+- Unhandled promise rejections
+- Error details sent to Umami for debugging
+
+**Implementation**:
+```html
+<script type="module">
+  import { onCLS, onINP, onLCP, onFCP, onTTFB } from 'https://unpkg.com/web-vitals@4?module';
+  // Metrics sent to Umami as custom events
+</script>
+```
+
+**Benefits**:
+- Real-user metrics (not synthetic tests)
+- Identify performance regressions
+- Track Core Web Vitals for SEO
+- Privacy-preserving (no PII collected)
+
 ### Newsletter (Ghost)
 
 Embedded signup form from Ghost blog at `flight-notes.ghost.io`.
@@ -388,6 +418,7 @@ Content Security Policy updated in `render.yaml` for external services:
 | Service | Domains Allowed |
 |---------|-----------------|
 | Analytics | `analytics.lumicello.com` |
+| Performance Monitoring | `unpkg.com` (Web Vitals library) |
 | Newsletter | `cdn.jsdelivr.net`, `flight-notes.ghost.io` |
 | Contact Form | `formspree.io` |
 | Fonts | `fonts.googleapis.com`, `fonts.gstatic.com` |

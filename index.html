@@ -626,5 +626,54 @@
         src="https://analytics.lumicello.com/script.js"
         data-website-id="31a60b26-0f0a-4c7b-a871-ff8db375f6d2"
     ></script>
+
+    <!-- Web Vitals Performance Monitoring -->
+    <script type="module">
+        // Import Web Vitals library
+        import { onCLS, onINP, onLCP, onFCP, onTTFB } from 'https://unpkg.com/web-vitals@4?module';
+
+        // Send metrics to Umami when available
+        function sendToAnalytics({ name, value, rating, id }) {
+            // Wait for Umami to be available
+            if (window.umami) {
+                window.umami.track(`web-vitals-${name}`, {
+                    value: Math.round(value),
+                    rating: rating,
+                    id: id
+                });
+            }
+        }
+
+        // Track Core Web Vitals
+        onCLS(sendToAnalytics);  // Cumulative Layout Shift
+        onINP(sendToAnalytics);  // Interaction to Next Paint
+        onLCP(sendToAnalytics);  // Largest Contentful Paint
+        onFCP(sendToAnalytics);  // First Contentful Paint
+        onTTFB(sendToAnalytics); // Time to First Byte
+    </script>
+
+    <!-- Error Tracking -->
+    <script>
+        // Track JavaScript errors
+        window.addEventListener('error', (event) => {
+            if (window.umami) {
+                window.umami.track('js-error', {
+                    message: event.message,
+                    filename: event.filename,
+                    line: event.lineno,
+                    column: event.colno
+                });
+            }
+        });
+
+        // Track unhandled promise rejections
+        window.addEventListener('unhandledrejection', (event) => {
+            if (window.umami) {
+                window.umami.track('promise-rejection', {
+                    reason: event.reason?.toString() || 'Unknown error'
+                });
+            }
+        });
+    </script>
 </body>
 </html>

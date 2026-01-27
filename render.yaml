@@ -38,11 +38,11 @@ services:
         name: Content-Security-Policy
         value: >-
           default-src 'self';
-          script-src 'self' 'unsafe-inline' https://analytics.lumicello.com https://cdn.jsdelivr.net;
+          script-src 'self' 'unsafe-inline' https://analytics.lumicello.com https://cdn.jsdelivr.net https://unpkg.com;
           style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
           img-src 'self' data: https:;
           font-src 'self' data: https://fonts.gstatic.com;
-          connect-src 'self' https://analytics.lumicello.com https://formspree.io https://flight-notes.ghost.io;
+          connect-src 'self' https://analytics.lumicello.com https://formspree.io https://flight-notes.ghost.io https://unpkg.com;
           frame-ancestors 'self';
           base-uri 'self';
           form-action 'self' https://formspree.io
