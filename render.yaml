@@ -34,7 +34,7 @@ services:
           base-uri 'self';
           form-action 'self' https://formspree.io;
           manifest-src 'self';
-          media-src 'none';
+          media-src https://hardtimes-media.tanwa.info;
           worker-src 'none';
           child-src 'none';
           upgrade-insecure-requests
@@ -50,4 +50,3 @@ services:
       - path: /*
         name: Permissions-Policy
         value: camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), ambient-light-sensor=()
-

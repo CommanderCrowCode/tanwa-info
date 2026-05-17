@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARD TIMES — Podcast</title>
+    <meta name="description" content="HARD TIMES — long-form conversation about contact with reality. Hosted by Tanwa." />
+
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+
+    <meta property="og:title" content="HARD TIMES — Podcast" />
+    <meta property="og:description" content="Long-form conversation about contact with reality. No lessons. No resolution." />
+    <meta property="og:image" content="https://hardtimes.tanwa.info/hardtimes/cover_1200.jpg" />
+    <meta property="og:url" content="https://tanwa.info/hardtimes/" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HARD TIMES — Podcast" />
+    <meta name="twitter:description" content="Long-form conversation about contact with reality." />
+
+    <link rel="alternate" type="application/rss+xml" title="HARD TIMES RSS" href="https://hardtimes.tanwa.info/hardtimes/feed.rss" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #FAF9F7;
+            --text: #2E2E2E;
+            --accent: #E6524A;
+            --accent-hover: #F77B72;
+            --secondary: #D7D7CF;
+            --gold: #E9A74B;
+            --gutter: 2rem;
+            --transition: cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Custom Cursor */
+        .cursor-dot, .cursor-outline {
+            position: fixed;
+            top: 0; left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        .cursor-dot { width: 8px; height: 8px; background-color: var(--text); }
+        .cursor-outline {
+            width: 40px; height: 40px;
+            border: 1px solid var(--text);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        body.hovering .cursor-outline {
+            width: 80px; height: 80px;
+            background-color: rgba(230, 82, 74, 0.1);
+            border-color: var(--accent);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(250, 249, 247, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .logo {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            font-size: 1.25rem;
+        }
+        .logo span { color: var(--accent); }
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        nav a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--accent); }
+
+        /* Content */
+        .content-layer {
+            position: relative;
+            z-index: 10;
+            padding-top: 20vh;
+            padding-bottom: 15vh;
+        }
+
+        .hero-statement {
+            padding: 0 var(--gutter);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            line-height: 1.15;
+            margin-bottom: 4vh;
+            max-width: 90%;
+            font-weight: 800;
+        }
+        .hero-statement span { color: var(--accent); }
+        .hero-sub {
+            padding: 0 var(--gutter);
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 8vh;
+            max-width: 600px;
+        }
+
+        /* Cover Art */
+        .cover-art {
+            padding: 0 var(--gutter);
+            margin-bottom: 8vh;
+        }
+        .cover-art img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        /* Audio Player */
+        .player-section {
+            padding: 0 var(--gutter);
+            margin-bottom: 8vh;
+            max-width: 700px;
+        }
+        .audio-player {
+            width: 100%;
+            border-radius: 12px;
+            background: #fff;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        .player-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .player-meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+        audio {
+            width: 100%;
+            height: 40px;
+        }
+
+        /* Section Headers */
+        .section-header {
+            padding: 4rem var(--gutter) 2rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Episode Card */
+        .episode-card {
+            padding: 2.5rem var(--gutter);
+            border-top: 1px solid rgba(0,0,0,0.08);
+            max-width: 900px;
+        }
+        .episode-card:last-child { border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .episode-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .episode-title {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .episode-description {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+        }
+        .episode-meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Timestamps */
+        .timestamps {
+            margin-bottom: 1.5rem;
+        }
+        .timestamp-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.5rem 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
+        .timestamp-time {
+            color: var(--accent);
+            font-weight: 500;
+            min-width: 50px;
+        }
+        .timestamp-label {
+            color: #555;
+        }
+
+        /* Platform Links */
+        .platform-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .platform-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 100px;
+            background: var(--text);
+            color: var(--bg);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .platform-link:hover {
+            background: var(--accent);
+        }
+        .platform-link.disabled {
+            background: var(--secondary);
+            color: #999;
+            pointer-events: none;
+        }
+
+        /* RSS Badge */
+        .rss-section {
+            padding: 2rem var(--gutter);
+        }
+        .rss-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            border: 1px solid var(--secondary);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .rss-badge:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 6rem var(--gutter) 4rem;
+            text-align: center;
+        }
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .footer-logo span { color: var(--accent); }
+        .footer-tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #888;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--accent); }
+        .footer-copy {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: #bbb;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header { padding: 1rem; }
+            nav ul { gap: 1rem; }
+            nav a { font-size: 0.7rem; }
+            .cursor-dot, .cursor-outline { display: none; }
+            * { cursor: auto; }
+            .hero-statement { font-size: 1.8rem; }
+            .platform-links { flex-direction: column; }
+            .platform-link { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <header>
+        <a href="../" class="logo" style="text-decoration:none;color:inherit;">Tanwa<span>.</span></a>
+        <nav>
+            <ul>
+                <li><a href="../">Home</a></li>
+                <li><a href="#episodes">Episodes</a></li>
+                <li><a href="#rss">RSS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-layer">
+
+        <div class="hero-statement">
+            HARD <span>TIMES</span>
+        </div>
+
+        <p class="hero-sub">
+            Long-form conversation about contact with reality. No lessons. No resolution. Just the conversation.
+        </p>
+
+        <div class="cover-art">
+            <img src="cover_1200.jpg" alt="HARD TIMES Podcast Cover Art" />
+        </div>
+
+        <div class="player-section">
+            <div class="audio-player">
+                <div class="player-title">EP001 — What Comes After</div>
+                <div class="player-meta">Tanwa + Jean · 1:37:42</div>
+                <audio controls preload="none">
+                    <source src="https://hardtimes-media.tanwa.info/ep001/audio.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+
+        <div class="section-header" id="episodes">Episodes</div>
+
+        <div class="episode-card">
+            <div class="episode-number">Episode 001</div>
+            <div class="episode-title">What Comes After</div>
+            <div class="episode-description">
+                Two people who bonded through suffering talk about why we avoid hard things — and what happens when we stop. Jean quit corporate for fitness. Tanwa can't stop signing up for races that scare him. No lessons. No resolution. Just the conversation.
+            </div>
+            <div class="episode-meta">
+                Hosts: Tanwa, Jean · Recorded: 2026-05-08 · Duration: 1:37:42
+            </div>
+
+            <div class="timestamps">
+                <div class="timestamp-item">
+                    <span class="timestamp-time">00:00</span>
+                    <span class="timestamp-label">Opening / What is this?</span>
+                </div>
+                <div class="timestamp-item">
+                    <span class="timestamp-time">06:00</span>
+                    <span class="timestamp-label">Top 3 Hard Times</span>
+                </div>
+                <div class="timestamp-item">
+                    <span class="timestamp-time">18:00</span>
+                    <span class="timestamp-label">One Punch Man Challenge</span>
+                </div>
+                <div class="timestamp-item">
+                    <span class="timestamp-time">32:00</span>
+                    <span class="timestamp-label">Spartan Race Story</span>
+                </div>
+                <div class="timestamp-item">
+                    <span class="timestamp-time">45:00</span>
+                    <span class="timestamp-label">Parenting as Hard Times</span>
+                </div>
+                <div class="timestamp-item">
+                    <span class="timestamp-time">62:00</span>
+                    <span class="timestamp-label">Identity Through Suffering</span>
+                </div>
+                <div class="timestamp-item">
+                    <span class="timestamp-time">82:00</span>
+                    <span class="timestamp-label">Looking Forward / AI & Kids</span>
+                </div>
+            </div>
+
+            <div class="platform-links">
+                <a href="#" class="platform-link disabled">YouTube (soon)</a>
+                <a href="#" class="platform-link disabled">Spotify (soon)</a>
+                <a href="#" class="platform-link disabled">Apple Podcasts (soon)</a>
+            </div>
+        </div>
+
+        <div class="section-header" id="rss">Subscribe</div>
+
+        <div class="rss-section">
+            <a href="https://hardtimes.tanwa.info/hardtimes/feed.rss" class="rss-badge" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 11a9 9 0 0 1 9 9"></path>
+                    <path d="M4 4a16 16 0 0 1 16 16"></path>
+                    <circle cx="5" cy="19" r="1"></circle>
+                </svg>
+                RSS Feed
+            </a>
+        </div>
+
+        <div class="footer">
+            <div class="footer-logo">HARD <span>TIMES</span></div>
+            <div class="footer-tagline">Contact with reality, not teaching.</div>
+            <div class="footer-links">
+                <a href="https://tanwa.info">Tanwa.info</a>
+                <a href="https://flight-notes.ghost.io" target="_blank">Flight Notes</a>
+            </div>
+            <div class="footer-copy">&copy; 2026 HARD TIMES</div>
+        </div>
+
+    </main>
+
+    <script>
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        const items = document.querySelectorAll('a, .platform-link, audio');
+
+        window.addEventListener('mousemove', (e) => {
+            cursorDot.style.left = `${e.clientX}px`;
+            cursorDot.style.top = `${e.clientY}px`;
+            cursorOutline.animate({
+                left: `${e.clientX}px`,
+                top: `${e.clientY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        items.forEach(item => {
+            item.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+            item.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+        });
+    </script>
+
+    <script
+        defer
+        src="https://analytics.lumicello.com/script.js"
+        data-website-id="31a60b26-0f0a-4c7b-a871-ff8db375f6d2"
+    ></script>
+</body>
+</html>
