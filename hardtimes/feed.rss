@@ -12,17 +12,17 @@
     <itunes:image href="https://media.tanwa.info/hardtimes/cover_1200.jpg" />
     <itunes:owner>
       <itunes:name>Tanwa &amp; Jean</itunes:name>
-      <itunes:email>joy@lumicello.com</itunes:email>
+      <itunes:email>podcast@hardtimes.tanwa.info</itunes:email>
     </itunes:owner>
-    <lastBuildDate>Sun, 17 May 2026 14:52:21 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2026 06:02:03 +0000</lastBuildDate>
     <item>
       <title>HARD TIMES — What Comes After</title>
       <guid isPermaLink="false">hard-times-001</guid>
       <pubDate>Sun, 17 May 2026 09:24:53 +0000</pubDate>
       <description>What Comes After</description>
-      <itunes:duration>1:37:42</itunes:duration>
+      <itunes:duration>1:37:55</itunes:duration>
       <itunes:explicit>no</itunes:explicit>
-      <enclosure url="https://media.tanwa.info/hardtimes/ep001/audio.mp3" length="104641595" type="audio/mpeg" />
+      <enclosure url="https://media.tanwa.info/hardtimes/ep001/audio.mp3" length="104851201" type="audio/mpeg" />
     </item>
   </channel>
 </rss>
