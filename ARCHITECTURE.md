@@ -59,10 +59,12 @@ The homepage follows a minimal single-page design with section-based navigation:
 | Section | Purpose |
 |---------|---------|
 | Header | Fixed nav: Tanwa. logo + VENTURES, SPEAKING, BLOG, CONTACT links |
-| Hero | Title + tagline + credentials summary |
-| Impact Numbers | Key metrics grid (฿85.3M, $700M, 400+, 5,000+) |
+| Hero | Title with Thai name + tagline |
+| About | Personal narrative (UVA PhD → VC advisor journey) |
+| Metrics | Key metrics grid (฿85.3M, $700M, 400+, 9+ Years Research) |
 | Ventures | Company portfolio (Two Flamingos, Flamingo 492, Lumicello) |
-| Speaking & Roles | Professional positions (SCB 10X, PSU Phuket, Redefine) |
+| Roles | Professional positions (SCB 10X, PSU Phuket) |
+| Speaking Engagements | Verified events (REDeFiNE TOMORROW 2023, Thailand Blockchain Week) |
 | Contact Form | Formspree-powered contact form ("GET IN TOUCH") |
 | Newsletter | Ghost-embedded signup ("FLIGHT NOTES") |
 | Footer | Social links + location |
@@ -78,6 +80,16 @@ The homepage follows a minimal single-page design with section-based navigation:
 Long-form content pages with:
 - Full-width reading experience
 - Schema.org Article markup
+
+### Podcast (hardtimes/)
+
+HARD TIMES podcast landing page:
+- Episode list with audio player
+- RSS feed (`feed.rss`)
+- Cover art display
+- Platform links (YouTube, Spotify, Apple)
+- Ghost signup integration
+- Links back to main site
 
 ---
 
@@ -225,7 +237,7 @@ All paths receive:
 - ฿85.3M Value Generated
 - $700M VC Fund Advised
 - 400+ Citations
-- 5,000+ Summit Attendees
+- 9+ Years Research
 
 ### Ventures Portfolio
 
@@ -238,6 +250,7 @@ All paths receive:
 | Type | Location | Status |
 |------|----------|--------|
 | Homepage | index.html | Active |
+| Podcast | hardtimes/index.html | Active |
 | Blog | External (flight-notes.ghost.io) | Active |
 | Case Study | articles/ai-transformation-scb10x.html | Complete |
 
@@ -302,10 +315,17 @@ All paths receive:
 
 **Note**: Blog posts are managed externally via Ghost (flight-notes.ghost.io). Articles in this repo are standalone case studies.
 
+### Adding Podcast Episodes
+
+1. Update `hardtimes/index.html` with new episode card
+2. Update `hardtimes/feed.rss` with new `<item>`
+3. Update `sitemap.xml`
+4. Commit and push (Render auto-deploys)
+
 ### Updating Metrics
 
 Key metrics appear in:
-- `index.html` metrics-bar section (lines ~431-448)
+- `index.html` metrics-bar section
 - Meta descriptions in `<head>`
 
 ### Modifying Styles
@@ -381,6 +401,16 @@ Server-side form handling via Formspree (form ID: `mgovrvqp`).
 - Spam filtering
 - Email notifications to site owner
 
+### Podcast (HARD TIMES)
+
+Self-hosted podcast landing page with RSS feed at `tanwa.info/hardtimes/feed.rss`.
+
+**Features**:
+- Episode list with inline audio player
+- RSS feed with iTunes namespace
+- Cover art display
+- Platform links (YouTube, Spotify, Apple)
+
 ### CSP Configuration
 
 Content Security Policy updated in `render.yaml` for external services:
@@ -390,6 +420,7 @@ Content Security Policy updated in `render.yaml` for external services:
 | Analytics | `analytics.lumicello.com` |
 | Newsletter | `cdn.jsdelivr.net`, `flight-notes.ghost.io` |
 | Contact Form | `formspree.io` |
+| Podcast Media | `hardtimes-media.tanwa.info` |
 | Fonts | `fonts.googleapis.com`, `fonts.gstatic.com` |
 
 ---
@@ -402,4 +433,4 @@ Content Security Policy updated in `render.yaml` for external services:
 
 ---
 
-*Last updated: January 5, 2026*
+*Last updated: May 18, 2026*
