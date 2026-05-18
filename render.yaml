@@ -34,7 +34,7 @@ services:
           base-uri 'self';
           form-action 'self' https://formspree.io;
           manifest-src 'self';
-          media-src https://hardtimes-media.tanwa.info;
+          media-src https://media.tanwa.info;
           worker-src 'none';
           child-src 'none';
           upgrade-insecure-requests

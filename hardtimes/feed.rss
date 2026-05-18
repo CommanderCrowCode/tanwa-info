@@ -2,14 +2,14 @@
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
   <channel>
     <title>HARD TIMES</title>
-    <link>https://tanwa.info/hardtimes</link>
+    <link>https://hardtimes.tanwa.info/</link>
     <language>en</language>
     <description>Long-form conversations about contact with reality — not teaching. No resolution. No moral packaging. Just two people talking about what happens when the body or the plan stops, and you have to decide what comes after.</description>
     <itunes:author>Tanwa &amp; Jean</itunes:author>
     <itunes:category text="Society &amp; Culture" />
     <itunes:category text="Personal Journals" />
     <itunes:explicit>no</itunes:explicit>
-    <itunes:image href="https://hardtimes.tanwa.info/hardtimes/cover_1200.jpg" />
+    <itunes:image href="https://media.tanwa.info/hardtimes/cover_1200.jpg" />
     <itunes:owner>
       <itunes:name>Tanwa &amp; Jean</itunes:name>
       <itunes:email>joy@lumicello.com</itunes:email>
@@ -22,7 +22,7 @@
       <description>What Comes After</description>
       <itunes:duration>1:37:42</itunes:duration>
       <itunes:explicit>no</itunes:explicit>
-      <enclosure url="https://hardtimes-media.tanwa.info/ep001/audio.mp3" length="104641595" type="audio/mpeg" />
+      <enclosure url="https://media.tanwa.info/hardtimes/ep001/audio.mp3" length="104641595" type="audio/mpeg" />
     </item>
   </channel>
 </rss>
