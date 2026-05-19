@@ -4,22 +4,23 @@
     <title>HARD TIMES</title>
     <link>https://hardtimes.tanwa.info/</link>
     <language>en</language>
-    <description>Long-form conversations about contact with reality — not teaching. No resolution. No moral packaging. Just two people talking about what happens when the body or the plan stops, and you have to decide what comes after.</description>
+    <description>Long-form conversations about contact with reality. Not teaching. No resolution. No moral packaging. Just two people talking about what happens when the body or the plan stops, and you have to decide what comes after.</description>
     <itunes:author>Tanwa &amp; Jean</itunes:author>
-    <itunes:category text="Society &amp; Culture" />
-    <itunes:category text="Personal Journals" />
+    <itunes:category text="Society &amp; Culture">
+      <itunes:category text="Personal Journals" />
+    </itunes:category>
     <itunes:explicit>no</itunes:explicit>
     <itunes:image href="https://media.tanwa.info/hardtimes/cover_1200.jpg" />
     <itunes:owner>
       <itunes:name>Tanwa &amp; Jean</itunes:name>
-      <itunes:email>podcast@hardtimes.tanwa.info</itunes:email>
+      <itunes:email>tanwa@lumicello.com</itunes:email>
     </itunes:owner>
-    <lastBuildDate>Mon, 18 May 2026 06:02:03 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 May 2026 02:49:26 +0000</lastBuildDate>
     <item>
-      <title>HARD TIMES — What Comes After</title>
+      <title>HARD TIMES: What Comes After</title>
       <guid isPermaLink="false">hard-times-001</guid>
       <pubDate>Sun, 17 May 2026 09:24:53 +0000</pubDate>
-      <description>What Comes After</description>
+      <description>Two people who bonded through suffering talk about why we avoid hard things — and what happens when we stop. Jean quit corporate for fitness. Tanwa can't stop signing up for races that scare him. No lessons. No resolution. Just the conversation.</description>
       <itunes:duration>1:37:55</itunes:duration>
       <itunes:explicit>no</itunes:explicit>
       <enclosure url="https://media.tanwa.info/hardtimes/ep001/audio.mp3" length="104851201" type="audio/mpeg" />
