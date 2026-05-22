@@ -486,6 +486,104 @@
             margin: 0 auto 2rem;
         }
 
+        /* Research Section */
+        .research-section {
+            padding: 0 var(--gutter);
+            margin-bottom: 4rem;
+        }
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .research-stat {
+            text-align: center;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+        .research-stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1.2;
+        }
+        .research-stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        .publication-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .publication-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.06);
+            text-decoration: none;
+            color: var(--text);
+            transition: transform 0.3s var(--transition), box-shadow 0.3s var(--transition);
+        }
+        .publication-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+        }
+        .pub-citations {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            min-width: 60px;
+            text-align: center;
+        }
+        .pub-citations span {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888;
+        }
+        .pub-details {
+            flex: 1;
+        }
+        .pub-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 0.25rem;
+        }
+        .pub-venue {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: #888;
+        }
+        .research-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .research-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: gap 0.2s;
+        }
+        .research-link:hover {
+            gap: 0.75rem;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             header { padding: 1rem; }
@@ -503,6 +601,9 @@
             .footer-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
             .contact-form button { align-self: center; }
             .footer-section-title { margin-bottom: 1rem; }
+            .research-grid { grid-template-columns: 1fr; }
+            .publication-item { flex-direction: column; gap: 0.5rem; }
+            .pub-citations { min-width: auto; text-align: left; }
         }
 
         /* Accessibility: Screen reader only content */
@@ -589,6 +690,55 @@
                 that actually ship—I bridge the lab and the deal table. Because the best innovations happen when you understand
                 both the science and the business.
             </p>
+        </div>
+
+        <h2 class="section-header" id="research">Research</h2>
+
+        <div class="research-section">
+            <div class="research-grid">
+                <div class="research-stat">
+                    <div class="research-stat-number">400+</div>
+                    <div class="research-stat-label">Total Citations</div>
+                </div>
+                <div class="research-stat">
+                    <div class="research-stat-number">9</div>
+                    <div class="research-stat-label">h-index</div>
+                </div>
+                <div class="research-stat">
+                    <div class="research-stat-number">8</div>
+                    <div class="research-stat-label">Publications</div>
+                </div>
+            </div>
+
+            <div class="publication-list">
+                <a href="https://doi.org/10.1103/PhysRevLett.124.120403" target="_blank" rel="noopener noreferrer" class="publication-item">
+                    <div class="pub-citations">107<span>citations</span></div>
+                    <div class="pub-details">
+                        <div class="pub-title">Quantum rotation sensing with dual Sagnac interferometers</div>
+                        <div class="pub-venue">Physical Review Letters, 2020</div>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=xtIiVDkAAAAJ&amp;citation_for_view=xtIiVDkAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener noreferrer" class="publication-item">
+                    <div class="pub-citations">166<span>citations</span></div>
+                    <div class="pub-details">
+                        <div class="pub-title">Vacuum pressure measurements using a magneto-optical trap</div>
+                        <div class="pub-venue">arXiv, 2012</div>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=xtIiVDkAAAAJ&amp;citation_for_view=xtIiVDkAAAAJ:MXK_kJrjxJIC" target="_blank" rel="noopener noreferrer" class="publication-item">
+                    <div class="pub-citations">14<span>citations</span></div>
+                    <div class="pub-details">
+                        <div class="pub-title">The flash loan attack analysis (FAA) framework</div>
+                        <div class="pub-venue">2022 · DeFi Security</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="research-cta">
+                <a href="https://scholar.google.com/citations?user=xtIiVDkAAAAJ" target="_blank" rel="noopener noreferrer" class="research-link">
+                    View all publications on Google Scholar →
+                </a>
+            </div>
         </div>
 
         <div class="metrics-bar">
