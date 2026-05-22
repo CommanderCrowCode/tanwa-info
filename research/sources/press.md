@@ -13,17 +13,15 @@
 ### 2025 Events
 | Event | Role | Notes |
 |-------|------|-------|
-| Canvas Forum 2025 | Speaker | Hosted by Dr. Pun-Arj Chairatana |
 | Techsauce Global Summit 2025 | Participant | August, Bangkok |
 | One ASEAN Startup Award 2025 | Participant | Hosted by ERIA Digital |
-| National Innovation Agency | Speaker | Thailand government org |
 
 ### 2024 Events
-| Event | Role | Notes |
-|-------|------|-------|
-| ASEAN GenAI Roadshow | Attendee | Insights into SE Asia AI startups |
-| WikiExpo 2024 | Award recipient + Panel | AI in Fintech |
-| SCBX/Accenture Life Trend 2024 | Fireside chat speaker | "Future of Life Centricity in Thailand" |
+| Event | Role | Notes | Source |
+|-------|------|-------|--------|
+| ASEAN GenAI Startup Report Launch Roadshow | Speaker | GenAI startup scaling, Bangkok | https://genaifund.ai/asean-genai-startup-report-launch-roadshow-2024/ |
+| Techsauce Global Summit 2024 | Panelist | AI Ecosystem | https://www.scb10x.com/en/blog/ai-ecosystem-collaboration |
+| SCBX/Accenture Life Trend 2024 | Fireside chat speaker | "Future of Life Centricity in Thailand" | https://media.licdn.com/dms/image/v2/D5622AQFo2IWxKSNRpA/feedshare-image-high-res/feedshare-image-high-res/0/1704859135044 |
 
 ### 2023 Events
 | Event | Role | Topic |
@@ -34,7 +32,6 @@
 ## Notable Co-Speakers
 
 - **Mustafa Al-Bassam**: CEO and co-founder of Celestia (REDeFiNE 2023)
-- **Dr. Pun-Arj Chairatana**: Canvas Forum 2025 host
 
 ## Medium Publications
 
@@ -65,7 +62,6 @@
 
 ## Key Facts (Verified)
 
-- ✅ Award winner: WikiExpo 2024 (AI in Fintech)
 - ✅ Conference speaker: Multiple Thailand tech events
 - ✅ Panel moderator: REDeFiNE TOMORROW, Thailand Blockchain Week
 - ✅ Active Medium contributor
