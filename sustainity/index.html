@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sustainity Session 3 - Materials</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Try-it-yourself prompts and files for Sustainity Session 3.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #FAF9F7;
+        --text: #2E2E2E;
+        --accent: #E6524A;
+        --accent-hover: #F77B72;
+        --secondary: #D7D7CF;
+        --gold: #E9A74B;
+        --gutter: 1.25rem;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+        background-color: var(--bg);
+        color: var(--text);
+        font-family: 'Inter', sans-serif;
+        line-height: 1.5;
+        padding: 0 var(--gutter) 3rem;
+        max-width: 640px;
+        margin: 0 auto;
+    }
+    header { padding: 1.5rem 0 0.75rem; }
+    .logo {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 800;
+        font-size: 1.1rem;
+        letter-spacing: -0.01em;
+    }
+    .logo span { color: var(--accent); }
+    h1 {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 800;
+        font-size: clamp(1.4rem, 6.5vw, 1.9rem);
+        line-height: 1.2;
+        margin: 0.4rem 0 0.6rem;
+    }
+    .session-meta {
+        font-size: 0.9rem;
+        background: #FFFFFF;
+        border: 1px solid var(--secondary);
+        border-radius: 10px;
+        padding: 0.75rem 0.9rem;
+        margin-bottom: 1rem;
+    }
+    .session-meta strong { font-family: 'Manrope', sans-serif; font-weight: 700; }
+    .try-box {
+        background: #FFFFFF;
+        border: 2px solid var(--accent);
+        border-radius: 12px;
+        padding: 1rem 1.1rem;
+        margin-bottom: 1.75rem;
+    }
+    .try-box .kicker {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 800;
+        font-size: 1.05rem;
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+    }
+    .try-box ol {
+        padding-left: 1.1rem;
+        margin: 0.5rem 0 0.75rem;
+    }
+    .try-box li { margin-bottom: 0.5rem; font-size: 0.95rem; }
+    .try-box .prompt-text {
+        display: block;
+        font-style: italic;
+        font-size: 0.92rem;
+        background: var(--bg);
+        border-radius: 8px;
+        padding: 0.6rem 0.7rem;
+        margin-top: 0.35rem;
+    }
+    section { margin-bottom: 2.1rem; }
+    h2 {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 0.7rem;
+        padding-bottom: 0.35rem;
+        border-bottom: 2px solid var(--secondary);
+    }
+    h3 {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        margin: 1rem 0 0.35rem;
+    }
+    p { margin-bottom: 0.7rem; font-size: 0.95rem; }
+    .prompt-card {
+        background: #FFFFFF;
+        border: 1px solid var(--secondary);
+        border-radius: 10px;
+        padding: 0.85rem 0.95rem;
+        margin-bottom: 0.85rem;
+    }
+    .prompt-card .label {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        font-size: 0.82rem;
+        color: var(--accent);
+        margin-bottom: 0.35rem;
+    }
+    .prompt-card .text { font-size: 0.92rem; font-style: italic; }
+    .prompt-card .check {
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: #1E7A5F;
+        margin-top: 0.45rem;
+    }
+    .link-box {
+        display: block;
+        background: var(--accent);
+        color: #FFFFFF;
+        text-decoration: none;
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        text-align: center;
+        padding: 0.85rem 1rem;
+        border-radius: 10px;
+        font-size: 0.92rem;
+        margin-bottom: 0.5rem;
+    }
+    .link-box.secondary { background: #FFFFFF; color: var(--text); border: 1px solid var(--secondary); }
+    .link-box:active { opacity: 0.85; }
+    .note { font-size: 0.82rem; color: #5A5A5A; margin-top: 0.5rem; }
+    .file-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #FFFFFF;
+        border: 1px solid var(--secondary);
+        border-radius: 10px;
+        padding: 0.7rem 0.9rem;
+        margin-bottom: 0.6rem;
+        gap: 0.75rem;
+    }
+    .file-row .meta { font-size: 0.85rem; }
+    .file-row .meta .fname { font-weight: 700; font-family: 'Manrope', sans-serif; display: block; }
+    .file-row a {
+        color: #FFFFFF;
+        background: var(--text);
+        text-decoration: none;
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 0.45rem 0.8rem;
+        border-radius: 8px;
+        white-space: nowrap;
+    }
+    .hash { font-family: monospace; font-size: 0.72rem; color: #8A8A8A; word-break: break-all; }
+    footer {
+        font-size: 0.78rem;
+        color: #7A7A7A;
+        border-top: 1px solid var(--secondary);
+        padding-top: 1.1rem;
+        margin-top: 0.75rem;
+    }
+    a { color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+    <div class="logo">tanwa<span>.</span>info</div>
+</header>
+
+<h1>Sustainity Session 3: materials</h1>
+
+<div class="session-meta">
+    <strong>Thursday, 26 November 2026</strong><br>
+    13:00 to 15:00
+</div>
+
+<div class="try-box">
+    <div class="kicker">Try it yourself, right now</div>
+    <ol>
+        <li>Download <strong>case1-3-orders.csv</strong> below (7.6 MB, one row per order). It fits in ChatGPT (about 50 MB) and in Claude. Claude's chat upload limit is 500 MB. Its code-running limit is 30 MB. This file is fine either way.</li>
+        <li>Open ChatGPT or Claude, start a new chat, and attach the file.</li>
+        <li>Paste this mapping line first:</li>
+    </ol>
+    <span class="prompt-text">"This file has one row per order. Days Actual is Days for shipping (real). Days Scheduled is Days for shipment (scheduled). Sales is Order Item Total added up over the order's lines. Profit is Order Profit Per Order added up over the order's lines."</span>
+    <ol start="4">
+        <li>Then paste this prompt:</li>
+    </ol>
+    <span class="prompt-text">"An order is late when Days for shipping (real) is more than Days for shipment (scheduled), and Delivery Status is not Shipping canceled. What share of orders is late for each Shipping Mode? Count each Order Id once."</span>
+    <p class="note">Five minutes is plenty. We will compare what you got with the room after.</p>
+</div>
+
+<section>
+    <h2>Dataset</h2>
+    <p>
+        The workshop uses a public supply-chain teaching dataset, DataCo Smart Supply Chain
+        (CC BY 4.0). The full dataset is on Mendeley Data:
+    </p>
+    <a class="link-box secondary" href="https://data.mendeley.com/datasets/8gx2fvg2k6/5" target="_blank" rel="noopener">
+        Mendeley Data record
+    </a>
+    <!-- DRIVE-LINK-PATCH-POINT: see sustainity-drive-link-patch.html for the sentence + link to add here at ~07:05, pending Tanwa's 7am window -->
+</section>
+
+<section>
+    <h2>Files for this session</h2>
+    <p>Two smaller files, built for this workshop, one row per order or order line.</p>
+    <div class="file-row">
+        <div class="meta">
+            <span class="fname">case1-3-orders.csv</span>
+            7.6 MB, one row per order
+            <div class="hash">sha256 2248379a630f377a6a18e4ad59dda7624149077d623a7d3b0546f6cb80702337</div>
+        </div>
+        <a href="data/case1-3-orders.csv" download>Download</a>
+    </div>
+    <div class="file-row">
+        <div class="meta">
+            <span class="fname">case2-second-class-lines.csv</span>
+            5.0 MB, order lines
+            <div class="hash">sha256 c2718b29344fa76558c051535871750e2dcc22053c1290351ee72e43e7c6e554</div>
+        </div>
+        <a href="data/case2-second-class-lines.csv" download>Download</a>
+    </div>
+</section>
+
+<section>
+    <h2>The four prompts</h2>
+    <p>
+        These are the exact prompts from the session. Copy them into ChatGPT or Claude on
+        your own workshop data. Each one has a number to check your answer against.
+    </p>
+    <p class="note">
+        Prompts 1, 3 and 4 use case1-3-orders.csv. Paste the mapping line from "Try it
+        yourself" above before any of them. Prompt 2 uses case2-second-class-lines.csv,
+        whose column names already match the prompt, so no mapping line is needed there.
+    </p>
+
+    <div class="prompt-card">
+        <div class="label">1. Detect</div>
+        <div class="text">"An order is late when Days for shipping (real) is more than Days for shipment (scheduled), and Delivery Status is not Shipping canceled. What share of orders is late for each Shipping Mode? Count each Order Id once."</div>
+        <div class="check">Check: First Class figure given in the session</div>
+    </div>
+
+    <div class="prompt-card">
+        <div class="label">2. Understand</div>
+        <div class="text">"For Second Class, add up Order Profit Per Order over the lines of each late order. What is the total? Check it on order 50554."</div>
+        <div class="check">Check: order 50554's figure given in the session</div>
+    </div>
+
+    <div class="prompt-card">
+        <div class="label">3. Compare</div>
+        <div class="text">"Compare: upgrade Second Class to First Class at $92 an order (it keeps its 2 day promise), or promise First Class 2 days and Second Class 4 days. Assume a late order costs 10% of its Order Item Total, added up over its lines. First, show the credit on all late orders over 3 years, before any fix."</div>
+        <div class="check">Check: 3-year credit figure given in the session</div>
+    </div>
+
+    <div class="prompt-card">
+        <div class="label">4. Escalate</div>
+        <div class="text">"Write a five line escalation note to our commercial head: the signal, who is affected, the fixes with net cost, our recommendation, and what we need approved, by when."</div>
+        <div class="check">Check: no cost appears that you did not give it</div>
+    </div>
+
+    <p class="note">
+        Use these only on workshop data, or in your own company's approved tools. Never
+        company data in a personal account.
+    </p>
+</section>
+
+<section>
+    <h2>What we demo live</h2>
+    <p>Four short steps, about one tool each. You do not need any of these tools today.</p>
+
+    <h3>Step 1, Claude chat</h3>
+    <div class="prompt-card">
+        <div class="text">"This is a sample of 500 orders from a supply chain dataset. In five short bullets: what is in this file, and which three questions about delivery risk could it answer?"</div>
+    </div>
+
+    <h3>Step 2, Claude Cowork</h3>
+    <div class="prompt-card">
+        <div class="text">"In this folder, open weekly.csv. Make a line chart of late_share_pct by week_start, with dashed lines at the lowest and the highest of the earlier weeks. Mark the last row, a what if week we planted. Save it as weekly-watch.xlsx."</div>
+    </div>
+
+    <h3>Step 3, Claude Code</h3>
+    <div class="prompt-card">
+        <div class="text">"Read orders.csv. Write a short Python script that, for Second Class orders, adds up profit on late orders by region and shows the top five. Late means days_actual is greater than days_promised and delivery_status is not Shipping canceled. Run it, then show me the table and the script."</div>
+    </div>
+
+    <h3>Step 4, three agents on a relay</h3>
+    <div class="prompt-card">
+        <div class="text">"Check weekly.csv. Is the last week's late share outside the normal range? If it is, send impact-analyst a signal."</div>
+    </div>
+    <p class="note">
+        Step 4 shows three AI agents passing a finding to each other, ending in a note for
+        a person to approve. No agent approves anything on its own.
+    </p>
+</section>
+
+<footer>
+    Sustainity, Session 3. This page is for workshop participants and is not indexed.
+</footer>
+
+</body>
+</html>
