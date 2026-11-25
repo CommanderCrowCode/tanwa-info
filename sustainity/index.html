@@ -81,7 +81,7 @@
         padding: 0.6rem 0.7rem;
         margin-top: 0.35rem;
     }
-    section { margin-bottom: 2.1rem; }
+    section { margin-bottom: 1.5rem; }
     h2 {
         font-family: 'Manrope', sans-serif;
         font-weight: 700;
@@ -104,22 +104,74 @@
         background: #FFFFFF;
         border: 1px solid var(--secondary);
         border-radius: 10px;
-        padding: 0.85rem 0.95rem;
-        margin-bottom: 0.85rem;
+        padding: 0.7rem 0.8rem;
+        margin-bottom: 0.6rem;
     }
     .prompt-card .label {
         font-family: 'Manrope', sans-serif;
         font-weight: 700;
-        font-size: 0.82rem;
+        font-size: 0.8rem;
         color: var(--accent);
-        margin-bottom: 0.35rem;
+        margin-bottom: 0.3rem;
     }
-    .prompt-card .text { font-size: 0.92rem; font-style: italic; }
+    .prompt-card .text { font-size: 0.88rem; font-style: italic; line-height: 1.35; }
     .prompt-card .check {
         font-size: 0.82rem;
         font-weight: 500;
         color: #1E7A5F;
-        margin-top: 0.45rem;
+        margin-top: 0.4rem;
+    }
+    .card-file {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--bg);
+        border-radius: 8px;
+        padding: 0.4rem 0.55rem;
+        margin-bottom: 0.4rem;
+        gap: 0.5rem;
+    }
+    .card-file .fname { font-weight: 700; font-family: 'Manrope', sans-serif; font-size: 0.78rem; }
+    .card-file a {
+        color: #FFFFFF;
+        background: var(--text);
+        text-decoration: none;
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 0.32rem 0.6rem;
+        border-radius: 6px;
+        white-space: nowrap;
+    }
+    .inline-dl {
+        display: inline-block;
+        color: #FFFFFF;
+        background: var(--text);
+        text-decoration: none;
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 0.15rem 0.55rem;
+        border-radius: 6px;
+        margin: 0 0.1rem;
+        white-space: nowrap;
+    }
+    .card-step {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: #8A8A8A;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        margin-bottom: 0.15rem;
+    }
+    .card-mapping {
+        display: block;
+        font-style: italic;
+        font-size: 0.76rem;
+        line-height: 1.3;
+        color: #5A5A5A;
+        background: var(--bg);
+        border-radius: 6px;
+        padding: 0.4rem 0.55rem;
+        margin-bottom: 0.4rem;
     }
     .link-box {
         display: block;
@@ -137,30 +189,6 @@
     .link-box.secondary { background: #FFFFFF; color: var(--text); border: 1px solid var(--secondary); }
     .link-box:active { opacity: 0.85; }
     .note { font-size: 0.82rem; color: #5A5A5A; margin-top: 0.5rem; }
-    .file-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #FFFFFF;
-        border: 1px solid var(--secondary);
-        border-radius: 10px;
-        padding: 0.7rem 0.9rem;
-        margin-bottom: 0.6rem;
-        gap: 0.75rem;
-    }
-    .file-row .meta { font-size: 0.85rem; }
-    .file-row .meta .fname { font-weight: 700; font-family: 'Manrope', sans-serif; display: block; }
-    .file-row a {
-        color: #FFFFFF;
-        background: var(--text);
-        text-decoration: none;
-        font-size: 0.82rem;
-        font-weight: 700;
-        padding: 0.45rem 0.8rem;
-        border-radius: 8px;
-        white-space: nowrap;
-    }
-    .hash { font-family: monospace; font-size: 0.72rem; color: #8A8A8A; word-break: break-all; }
     footer {
         font-size: 0.78rem;
         color: #7A7A7A;
@@ -186,7 +214,7 @@
 <div class="try-box">
     <div class="kicker">Dump it and ask</div>
     <ol>
-        <li>Download DataCoSupplyChainDataset.csv from the Mendeley Data record in the Dataset section below. No sign-in needed. Not the description file, and not the access logs.</li>
+        <li>Download DataCoSupplyChainDataset.csv from the <a href="https://data.mendeley.com/datasets/8gx2fvg2k6/5" target="_blank" rel="noopener">Mendeley Data record</a>. No sign-in needed. Not the description file, and not the access logs.</li>
         <li>Open a new chat in ChatGPT, or in Claude with code execution on, or give it to Codex, an agent or work mode. Upload the whole file.</li>
         <li>Ask this, word for word:</li>
     </ol>
@@ -196,7 +224,9 @@
     </ol>
     <p class="note">If your tool reports an encoding error, tell it the file is Latin-1.</p>
     <p class="note">
-        If your tool says the file is too large, use our smaller order file below instead.
+        If your tool says the file is too large, use our smaller order file instead:
+        orders-one-row-per-order.csv
+        <a class="inline-dl" href="/sustainity/data/orders-one-row-per-order.csv" download>Download</a>.
         That file has one row per order. Paste this mapping line first:
     </p>
     <span class="prompt-text">"This file has one row per order. Days Actual is Days for shipping (real). Days Scheduled is Days for shipment (scheduled). Sales is Order Item Total added up over the order's lines. Profit is Order Profit Per Order added up over the order's lines."</span>
@@ -215,54 +245,55 @@
 </section>
 
 <section>
-    <h2>Files for this session</h2>
-    <p>Two smaller files, built for this workshop, one row per order or order line.</p>
-    <div class="file-row">
-        <div class="meta">
-            <span class="fname">orders-one-row-per-order.csv</span>
-            One row per order
-            <div class="hash">sha256 2248379a630f377a6a18e4ad59dda7624149077d623a7d3b0546f6cb80702337</div>
-        </div>
-        <a href="/sustainity/data/orders-one-row-per-order.csv" download>Download</a>
-    </div>
-    <div class="file-row">
-        <div class="meta">
-            <span class="fname">second-class-order-lines.csv</span>
-            Order lines
-            <div class="hash">sha256 c2718b29344fa76558c051535871750e2dcc22053c1290351ee72e43e7c6e554</div>
-        </div>
-        <a href="/sustainity/data/second-class-order-lines.csv" download>Download</a>
-    </div>
-</section>
-
-<section>
     <h2>The four prompts</h2>
     <p>
         These are the exact prompts from the session. Copy them into ChatGPT or Claude on
         your own workshop data.
     </p>
-    <p class="note">
-        Prompt 2 uses second-class-order-lines.csv. All other prompts use
-        orders-one-row-per-order.csv, with the mapping line.
-    </p>
 
     <div class="prompt-card">
-        <div class="label">1. Detect</div>
+        <div class="label">Prompt 1. Detect</div>
+        <div class="card-file">
+            <span class="fname">orders-one-row-per-order.csv</span>
+            <a href="/sustainity/data/orders-one-row-per-order.csv" download>Download</a>
+        </div>
+        <div class="card-step">Paste this first:</div>
+        <span class="card-mapping">"This file has one row per order. Days Actual is Days for shipping (real). Days Scheduled is Days for shipment (scheduled). Sales is Order Item Total added up over the order's lines. Profit is Order Profit Per Order added up over the order's lines."</span>
+        <div class="card-step">Then ask:</div>
         <div class="text">"An order is late when Days for shipping (real) is more than Days for shipment (scheduled), and Delivery Status is not Shipping canceled. What share of orders is late for each Shipping Mode? Count each Order Id once."</div>
     </div>
 
     <div class="prompt-card">
-        <div class="label">2. Understand</div>
+        <div class="label">Prompt 2. Understand</div>
+        <div class="card-file">
+            <span class="fname">second-class-order-lines.csv</span>
+            <a href="/sustainity/data/second-class-order-lines.csv" download>Download</a>
+        </div>
+        <div class="card-step">Ask:</div>
         <div class="text">"For Second Class, add up Order Profit Per Order over the lines of each late order. What is the total? Check it on order 50554."</div>
     </div>
 
     <div class="prompt-card">
-        <div class="label">3. Compare</div>
+        <div class="label">Prompt 3. Compare</div>
+        <div class="card-file">
+            <span class="fname">orders-one-row-per-order.csv</span>
+            <a href="/sustainity/data/orders-one-row-per-order.csv" download>Download</a>
+        </div>
+        <div class="card-step">Paste this first:</div>
+        <span class="card-mapping">"This file has one row per order. Days Actual is Days for shipping (real). Days Scheduled is Days for shipment (scheduled). Sales is Order Item Total added up over the order's lines. Profit is Order Profit Per Order added up over the order's lines."</span>
+        <div class="card-step">Then ask:</div>
         <div class="text">"Compare: upgrade Second Class to First Class at $92 an order (it keeps its 2 day promise), or promise First Class 2 days and Second Class 4 days. Assume a late order costs 10% of its Order Item Total, added up over its lines. First, show the credit on all late orders over 3 years, before any fix."</div>
     </div>
 
     <div class="prompt-card">
-        <div class="label">4. Escalate</div>
+        <div class="label">Prompt 4. Escalate</div>
+        <div class="card-file">
+            <span class="fname">orders-one-row-per-order.csv</span>
+            <a href="/sustainity/data/orders-one-row-per-order.csv" download>Download</a>
+        </div>
+        <div class="card-step">Paste this first:</div>
+        <span class="card-mapping">"This file has one row per order. Days Actual is Days for shipping (real). Days Scheduled is Days for shipment (scheduled). Sales is Order Item Total added up over the order's lines. Profit is Order Profit Per Order added up over the order's lines."</span>
+        <div class="card-step">Then ask:</div>
         <div class="text">"Write a five line escalation note to our commercial head: the signal, who is affected, the fixes with net cost, our recommendation, and what we need approved, by when."</div>
     </div>
 
@@ -305,19 +336,19 @@
     <h2>After the session</h2>
     <p>Check your prompt answers against these, once the room has compared together.</p>
     <div class="prompt-card">
-        <div class="label">1. Detect</div>
+        <div class="label">Prompt 1. Detect</div>
         <div class="check">Check it against the First Class figure from the session.</div>
     </div>
     <div class="prompt-card">
-        <div class="label">2. Understand</div>
+        <div class="label">Prompt 2. Understand</div>
         <div class="check">Check it against order 50554's figure from the session.</div>
     </div>
     <div class="prompt-card">
-        <div class="label">3. Compare</div>
+        <div class="label">Prompt 3. Compare</div>
         <div class="check">Check it against the 3-year credit figure from the session.</div>
     </div>
     <div class="prompt-card">
-        <div class="label">4. Escalate</div>
+        <div class="label">Prompt 4. Escalate</div>
         <div class="check">Check that no cost appears that you did not give it.</div>
     </div>
 </section>
