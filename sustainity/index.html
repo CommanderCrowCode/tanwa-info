@@ -184,18 +184,22 @@
 </div>
 
 <div class="try-box">
-    <div class="kicker">Try it yourself, right now</div>
+    <div class="kicker">Dump it and ask</div>
     <ol>
-        <li>Download <strong>case1-3-orders.csv</strong> below (7.6 MB, one row per order). It fits in ChatGPT (about 50 MB) and in Claude. Claude's chat upload limit is 500 MB. Its code-running limit is 30 MB. This file is fine either way.</li>
-        <li>Open ChatGPT or Claude, start a new chat, and attach the file.</li>
-        <li>Paste this mapping line first:</li>
+        <li>Download DataCoSupplyChainDataset.csv from the Mendeley Data record in the Dataset section below. No sign-in needed. Not the description file, and not the access logs.</li>
+        <li>Open a new chat in ChatGPT, or in Claude with code execution on, or give it to Codex, an agent or work mode. Upload the whole file.</li>
+        <li>Ask this, word for word:</li>
     </ol>
-    <span class="prompt-text">"This file has one row per order. Days Actual is Days for shipping (real). Days Scheduled is Days for shipment (scheduled). Sales is Order Item Total added up over the order's lines. Profit is Order Profit Per Order added up over the order's lines."</span>
+    <span class="prompt-text">"Here is our order data. How many of our orders arrive late, what share is that, and how much profit sits on late Second Class orders?"</span>
     <ol start="4">
-        <li>Then paste this prompt:</li>
+        <li>Write down the three numbers it gives you. In the session, we check them together.</li>
     </ol>
-    <span class="prompt-text">"An order is late when Days for shipping (real) is more than Days for shipment (scheduled), and Delivery Status is not Shipping canceled. What share of orders is late for each Shipping Mode? Count each Order Id once."</span>
-    <p class="note">Five minutes is plenty. We will compare what you got with the room after.</p>
+    <p class="note">If your tool reports an encoding error, tell it the file is Latin-1.</p>
+    <p class="note">
+        If your tool says the file is too large, use our smaller order file below instead.
+        That file has one row per order. Paste this mapping line first:
+    </p>
+    <span class="prompt-text">"This file has one row per order. Days Actual is Days for shipping (real). Days Scheduled is Days for shipment (scheduled). Sales is Order Item Total added up over the order's lines. Profit is Order Profit Per Order added up over the order's lines."</span>
 </div>
 
 <section>
@@ -216,7 +220,7 @@
     <div class="file-row">
         <div class="meta">
             <span class="fname">case1-3-orders.csv</span>
-            7.6 MB, one row per order
+            One row per order
             <div class="hash">sha256 2248379a630f377a6a18e4ad59dda7624149077d623a7d3b0546f6cb80702337</div>
         </div>
         <a href="/sustainity/data/case1-3-orders.csv" download>Download</a>
@@ -224,7 +228,7 @@
     <div class="file-row">
         <div class="meta">
             <span class="fname">case2-second-class-lines.csv</span>
-            5.0 MB, order lines
+            Order lines
             <div class="hash">sha256 c2718b29344fa76558c051535871750e2dcc22053c1290351ee72e43e7c6e554</div>
         </div>
         <a href="/sustainity/data/case2-second-class-lines.csv" download>Download</a>
@@ -235,36 +239,32 @@
     <h2>The four prompts</h2>
     <p>
         These are the exact prompts from the session. Copy them into ChatGPT or Claude on
-        your own workshop data. Each one has a number to check your answer against.
+        your own workshop data.
     </p>
     <p class="note">
-        Prompts 1, 3 and 4 use case1-3-orders.csv. Paste the mapping line from "Try it
-        yourself" above before any of them. Prompt 2 uses case2-second-class-lines.csv,
+        Prompts 1, 3 and 4 use case1-3-orders.csv. Paste the mapping line from "Dump it
+        and ask" above before any of them. Prompt 2 uses case2-second-class-lines.csv,
         whose column names already match the prompt, so no mapping line is needed there.
     </p>
 
     <div class="prompt-card">
         <div class="label">1. Detect</div>
         <div class="text">"An order is late when Days for shipping (real) is more than Days for shipment (scheduled), and Delivery Status is not Shipping canceled. What share of orders is late for each Shipping Mode? Count each Order Id once."</div>
-        <div class="check">Check: First Class figure given in the session</div>
     </div>
 
     <div class="prompt-card">
         <div class="label">2. Understand</div>
         <div class="text">"For Second Class, add up Order Profit Per Order over the lines of each late order. What is the total? Check it on order 50554."</div>
-        <div class="check">Check: order 50554's figure given in the session</div>
     </div>
 
     <div class="prompt-card">
         <div class="label">3. Compare</div>
         <div class="text">"Compare: upgrade Second Class to First Class at $92 an order (it keeps its 2 day promise), or promise First Class 2 days and Second Class 4 days. Assume a late order costs 10% of its Order Item Total, added up over its lines. First, show the credit on all late orders over 3 years, before any fix."</div>
-        <div class="check">Check: 3-year credit figure given in the session</div>
     </div>
 
     <div class="prompt-card">
         <div class="label">4. Escalate</div>
         <div class="text">"Write a five line escalation note to our commercial head: the signal, who is affected, the fixes with net cost, our recommendation, and what we need approved, by when."</div>
-        <div class="check">Check: no cost appears that you did not give it</div>
     </div>
 
     <p class="note">
@@ -300,6 +300,27 @@
         Step 4 shows three AI agents passing a finding to each other, ending in a note for
         a person to approve. No agent approves anything on its own.
     </p>
+</section>
+
+<section>
+    <h2>After the session</h2>
+    <p>Check your prompt answers against these, once the room has compared together.</p>
+    <div class="prompt-card">
+        <div class="label">1. Detect</div>
+        <div class="check">Check it against the First Class figure from the session.</div>
+    </div>
+    <div class="prompt-card">
+        <div class="label">2. Understand</div>
+        <div class="check">Check it against order 50554's figure from the session.</div>
+    </div>
+    <div class="prompt-card">
+        <div class="label">3. Compare</div>
+        <div class="check">Check it against the 3-year credit figure from the session.</div>
+    </div>
+    <div class="prompt-card">
+        <div class="label">4. Escalate</div>
+        <div class="check">Check that no cost appears that you did not give it.</div>
+    </div>
 </section>
 
 <footer>
